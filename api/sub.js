@@ -10,10 +10,6 @@ export default async function handler(req, res) {
     const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
     const configUrl = process.env.CONFIG_URL;
 
-    if (!supabaseUrl || !supabaseKey || !configUrl) {
-      return res.status(200).json({ error: "env not set" });
-    }
-
     const userRes = await fetch(
       `${supabaseUrl}/rest/v1/users?subscription_key=eq.${encodeURIComponent(key)}&select=subscription_key,status,expires_at`,
       {
