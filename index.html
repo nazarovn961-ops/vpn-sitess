@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Islam VPN - Инструкция подключения Happ" />
+  <title>Islam VPN - Инструкция подключения</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b1020;
+      --bg2: #121a31;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #c6d0ea;
+      --accent: #4f8cff;
+      --accent-2: #7c5cff;
+      --success: #19c37d;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(124, 92, 255, 0.18), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f8cff, #7c5cff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      padding: 12px 16px;
+      border-radius: 14px;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .telegram-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .platform-switch {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0 0;
+      flex-wrap: wrap;
+    }
+
+    .platform-btn {
+      border: none;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      transition: 0.2s ease;
+    }
+
+    .platform-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.28);
+    }
+
+    .section {
+      margin-top: 22px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .step {
+      margin-bottom: 22px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .step p,
+    .note {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      min-height: 50px;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .copy-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      word-break: break-all;
+      color: #dfe7ff;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .success {
+      margin-top: 12px;
+      color: #9af0c8;
+      font-size: 14px;
+      display: none;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .brand-text h1 {
+        font-size: 24px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn,
+      .telegram-btn,
+      .platform-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <!-- Если будет свой логотип, замени на:
+          <img src="logo.png" alt="Islam VPN logo">
+          -->
+          IV
+        </div>
+        <div class="brand-text">
+          <h1>Islam VPN</h1>
+          <p>Инструкция подключения Happ</p>
+        </div>
+      </div>
+
+      <a class="telegram-btn" href="https://t.me/islamvvpnbot" target="_blank" rel="noopener noreferrer">
+        <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21.5 4.5L18.5 18.6C18.27 19.6 17.66 19.85 16.81 19.37L12.25 16.01L10.05 18.13C9.81 18.37 9.6 18.58 9.14 18.58L9.47 13.93L17.93 6.29C18.29 5.97 17.85 5.79 17.37 6.1L6.91 12.7L2.41 11.29C1.43 10.98 1.41 10.31 2.61 9.84L20.2 3.06C21.01 2.76 21.73 3.25 21.5 4.5Z" fill="currentColor"/>
+        </svg>
+        Telegram
+      </a>
+    </div>
+
+    <div class="hero">
+      <h2>Подключение к Happ</h2>
+      <p>
+        Выберите устройство ниже и следуйте пошаговой инструкции для установки приложения
+        и добавления подписки.
+      </p>
+
+      <div class="platform-switch">
+        <button class="platform-btn active" id="androidTab" onclick="switchPlatform('android')">Android</button>
+        <button class="platform-btn" id="iosTab" onclick="switchPlatform('ios')">iPhone / iOS</button>
+      </div>
+    </div>
+
+    <!-- ANDROID -->
+    <div class="section" id="androidSection">
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Установка HAPP</h3>
+        </div>
+        <p>Выберите удобный способ установки приложения на Android:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.happproxy&pli=1" target="_blank" rel="noopener noreferrer">
+            Установите из Google Play
+          </a>
+
+          <a class="btn btn-secondary" href="https://r.stun.su/?to=https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank" rel="noopener noreferrer">
+            Скачать .APK файл напрямую
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Добавьте подписку</h3>
+        </div>
+        <p>Нажмите кнопку ниже, чтобы автоматически добавить подписку в Happ:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json">
+            Добавить подписку
+          </a>
+          <button class="btn btn-secondary" onclick="copySubLink()">Скопировать ссылку</button>
+        </div>
+
+        <div class="copy-box" id="subLinkBox">
+          https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json
+        </div>
+        <div class="success" id="copySuccess">Ссылка скопирована.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Подключитесь к серверу</h3>
+        </div>
+        <p>Откройте приложение и подключитесь к серверу.</p>
+        <p class="note">
+          Если подписка не добавилась, нажмите выше «Скопировать ссылку».
+          Затем в Happ нажмите на <b>Плюс</b> ➜ <b>Вставить из буфера</b>.
+        </p>
+      </div>
+    </div>
+
+    <!-- IOS -->
+    <div class="section hidden" id="iosSection">
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Установка HAPP</h3>
+        </div>
+        <p>Установите приложение из App Store в зависимости от вашего региона Apple ID:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">
+            App Store (Регион Россия)
+          </a>
+
+          <a class="btn btn-secondary" href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" target="_blank" rel="noopener noreferrer">
+            App Store (Другой регион)
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Добавьте подписку</h3>
+        </div>
+        <p>Нажмите кнопку ниже, чтобы автоматически добавить подписку в Happ:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json">
+            Добавить подписку
+          </a>
+          <button class="btn btn-secondary" onclick="copySubLink()">Скопировать ссылку</button>
+        </div>
+
+        <div class="copy-box">
+          https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json
+        </div>
+        <div class="success" id="copySuccessIos">Ссылка скопирована.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Подключитесь к серверу</h3>
+        </div>
+        <p>Откройте приложение и подключитесь к серверу.</p>
+        <p class="note">
+          Если подписка не добавилась, нажмите выше «Скопировать ссылку».
+          Затем в Happ нажмите на <b>Плюс</b> ➜ <b>Вставить из буфера</b>.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © Islam VPN
+    </div>
+  </div>
+
+  <script>
+    const subLink = "https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json";
+
+    function switchPlatform(platform) {
+      const androidSection = document.getElementById("androidSection");
+      const iosSection = document.getElementById("iosSection");
+      const androidTab = document.getElementById("androidTab");
+      const iosTab = document.getElementById("iosTab");
+
+      if (platform === "android") {
+        androidSection.classList.remove("hidden");
+        iosSection.classList.add("hidden");
+        androidTab.classList.add("active");
+        iosTab.classList.remove("active");
+      } else {
+        iosSection.classList.remove("hidden");
+        androidSection.classList.add("hidden");
+        iosTab.classList.add("active");
+        androidTab.classList.remove("active");
+      }
+    }
+
+    function copySubLink() {
+      navigator.clipboard.writeText(subLink).then(() => {
+        const success1 = document.getElementById("copySuccess");
+        const success2 = document.getElementById("copySuccessIos");
+
+        if (success1) {
+          success1.style.display = "block";
+          setTimeout(() => success1.style.display = "none", 2000);
+        }
+
+        if (success2) {
+          success2.style.display = "block";
+          setTimeout(() => success2.style.display = "none", 2000);
+        }
+      }).catch(() => {
+        alert("Не удалось скопировать ссылку. Скопируйте её вручную из блока ниже.");
+      });
+    }
+  </script>
+</body>
+</html>
