@@ -1,628 +1,1102 @@
-﻿[
-  {
-    "dns": {
-      "queryStrategy": "IPIfNonMatch",
-      "servers": [
-        {
-          "address": "1.1.1.1",
-          "skipFallback": false
-        }
-      ],
-      "tag": "dns_out"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "userLevel": 8
-        },
-        "sniffing": {
-          "destOverride": ["http", "tls", "fakedns"],
-          "enabled": true
-        },
-        "tag": "socks"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "userLevel": 8
-        },
-        "tag": "http"
-      }
-    ],
-    "log": {
-      "access": "/private/var/mobile/Containers/Shared/AppGroup/0493EE28-F6F1-46DF-A50E-2A75EF129325/Library/Application Support/Xray/logs/access",
-      "dnsLog": true,
-      "loglevel": "Warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "at.titun.su",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "a44a6111-be40-4a96-8947-cb82fe37723b"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "qq",
-            "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
-            "serverName": "pogovorim.su",
-            "shortId": "428ef87fd47a3a32"
-          },
-          "security": "reality",
-          "tcpSettings": {}
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "system": {
-        "statsOutboundDownlink": true,
-        "statsOutboundUplink": true
-      }
-    },
-    "remarks": "🇦🇹 Австрия ᴺᴱᵂ",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "domain": [
-            "localhost",
-            "localhost.localdomain",
-            "local",
-            "*.local",
-            "*.localdomain",
-            "*.lan",
-            "*.internal"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "127.0.0.0/8",
-            "10.0.0.0/8",
-            "172.16.0.0/12",
-            "192.168.0.0/16",
-            "169.254.0.0/16",
-            "::1/128",
-            "fc00::/7",
-            "fe80::/10"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "outboundTag": "proxy",
-          "protocol": ["bittorrent"],
-          "type": "field"
-        },
-        {
-          "domain": [
-            "domain:2ip.ru",
-            "domain:2ip.io",
-            "habr.com",
-            "4pda.to",
-            "4pda.ru",
-            "kemono.su",
-            "jut.su",
-            "kara.su",
-            "theins.ru",
-            "tvrain.ru",
-            "echo.msk.ru",
-            "the-village.ru",
-            "snob.ru",
-            "novayagazeta.ru",
-            "moscowtimes.ru"
-          ],
-          "outboundTag": "proxy"
-        },
-        {
-          "domain": ["geosite:private", "geosite:category-ru"],
-          "outboundTag": "direct"
-        },
-        {
-          "ip": ["geoip:ru", "geoip:private"],
-          "outboundTag": "direct"
-        }
-      ]
-    },
-    "stats": {}
+{
+  "mode": "rule",
+  "redir-port": 7892,
+  "mixed-port": 7897,
+  "allow-lan": false,
+  "log-level": "warning",
+  "ipv6": true,
+  "external-controller": "127.0.0.1:9097",
+  "secret": "set-your-secret",
+  "unified-delay": true,
+  "external-controller-cors": {
+    "allow-private-network": true,
+    "allow-origins": [
+      "tauri://localhost",
+      "http://tauri.localhost",
+      "https://yacd.metacubex.one",
+      "https://metacubex.github.io",
+      "https://board.zash.run.place"
+    ]
   },
-  {
-    "dns": {
-      "queryStrategy": "IPIfNonMatch",
-      "servers": [
-        {
-          "address": "1.1.1.1",
-          "skipFallback": false
-        }
-      ],
-      "tag": "dns_out"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "userLevel": 8
-        },
-        "sniffing": {
-          "destOverride": ["http", "tls", "fakedns"],
-          "enabled": true
-        },
-        "tag": "socks"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "userLevel": 8
-        },
-        "tag": "http"
-      }
+  "dns": {
+    "enable": true,
+    "use-hosts": true,
+    "enhanced-mode": "fake-ip",
+    "fake-ip-range": "198.18.0.1/16",
+    "default-nameserver": [
+      "1.1.1.1",
+      "8.8.8.8"
     ],
-    "log": {
-      "access": "/private/var/mobile/Containers/Shared/AppGroup/0493EE28-F6F1-46DF-A50E-2A75EF129325/Library/Application Support/Xray/logs/access",
-      "dnsLog": true,
-      "loglevel": "Warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "fi.jojack.ru",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "a44a6111-be40-4a96-8947-cb82fe37723b"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "qq",
-            "publicKey": "u26A516I3BCfUMPOo6rw0-XYt0C2sCWaPNP2pNdtxzw",
-            "serverName": "fi.jojack.ru",
-            "shortId": "12f7cb94d832dcba",
-            "spiderX": "/"
-          },
-          "security": "reality",
-          "tcpSettings": {}
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
+    "nameserver": [
+      "1.1.1.1",
+      "8.8.8.8"
     ],
-    "policy": {
-      "system": {
-        "statsOutboundDownlink": true,
-        "statsOutboundUplink": true
-      }
-    },
-    "remarks": "🇫🇮⚡ Финляндия",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "domain": [
-            "localhost",
-            "localhost.localdomain",
-            "local",
-            "*.local",
-            "*.localdomain",
-            "*.lan",
-            "*.internal"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "127.0.0.0/8",
-            "10.0.0.0/8",
-            "172.16.0.0/12",
-            "192.168.0.0/16",
-            "169.254.0.0/16",
-            "::1/128",
-            "fc00::/7",
-            "fe80::/10"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "outboundTag": "proxy",
-          "protocol": ["bittorrent"],
-          "type": "field"
-        },
-        {
-          "domain": [
-            "domain:2ip.ru",
-            "domain:2ip.io",
-            "habr.com",
-            "4pda.to",
-            "4pda.ru",
-            "kemono.su",
-            "jut.su",
-            "kara.su",
-            "theins.ru",
-            "tvrain.ru",
-            "echo.msk.ru",
-            "the-village.ru",
-            "snob.ru",
-            "novayagazeta.ru",
-            "moscowtimes.ru"
-          ],
-          "outboundTag": "proxy"
-        },
-        {
-          "domain": ["geosite:private", "geosite:category-ru"],
-          "outboundTag": "direct"
-        },
-        {
-          "ip": ["geoip:ru", "geoip:private"],
-          "outboundTag": "direct"
-        }
-      ]
-    },
-    "stats": {}
+    "fake-ip-filter": [
+      "*.lan",
+      "stun.*.*.*",
+      "stun.*.*",
+      "time.windows.com",
+      "time.nist.gov",
+      "time.apple.com",
+      "time.asia.apple.com",
+      "*.openwrt.pool.ntp.org",
+      "pool.ntp.org",
+      "ntp.ubuntu.com",
+      "time1.apple.com",
+      "time2.apple.com",
+      "time3.apple.com",
+      "time4.apple.com",
+      "time5.apple.com",
+      "time6.apple.com",
+      "time7.apple.com",
+      "time1.google.com",
+      "time2.google.com",
+      "time3.google.com",
+      "time4.google.com",
+      "api.joox.com",
+      "joox.com",
+      "*.xiami.com",
+      "*.msftconnecttest.com",
+      "*.msftncsi.com",
+      "+.xboxlive.com",
+      "*.*.stun.playstation.net",
+      "xbox.*.*.microsoft.com",
+      "*.ipv6.microsoft.com",
+      "speedtest.cros.wr.pvp.net"
+    ],
+    "ipv6": true
   },
-  {
-    "dns": {
-      "queryStrategy": "IPIfNonMatch",
-      "servers": [
-        {
-          "address": "1.1.1.1",
-          "skipFallback": false
-        }
-      ],
-      "tag": "dns_out"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "userLevel": 8
-        },
-        "sniffing": {
-          "destOverride": ["http", "tls", "fakedns"],
-          "enabled": true
-        },
-        "tag": "socks"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "userLevel": 8
-        },
-        "tag": "http"
-      }
-    ],
-    "log": {
-      "access": "/private/var/mobile/Containers/Shared/AppGroup/0493EE28-F6F1-46DF-A50E-2A75EF129325/Library/Application Support/Xray/logs/access",
-      "dnsLog": true,
-      "loglevel": "Warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "es.subv.ru",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "a44a6111-be40-4a96-8947-cb82fe37723b"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "qq",
-            "publicKey": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
-            "serverName": "es.subv.ru",
-            "shortId": "8dc4fccb2bcfc99d",
-            "spiderX": "/"
-          },
-          "security": "reality",
-          "tcpSettings": {}
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "system": {
-        "statsOutboundDownlink": true,
-        "statsOutboundUplink": true
-      }
-    },
-    "remarks": "🇪🇪⚡ Эстония",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "domain": [
-            "localhost",
-            "localhost.localdomain",
-            "local",
-            "*.local",
-            "*.localdomain",
-            "*.lan",
-            "*.internal"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "127.0.0.0/8",
-            "10.0.0.0/8",
-            "172.16.0.0/12",
-            "192.168.0.0/16",
-            "169.254.0.0/16",
-            "::1/128",
-            "fc00::/7",
-            "fe80::/10"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "outboundTag": "proxy",
-          "protocol": ["bittorrent"],
-          "type": "field"
-        },
-        {
-          "domain": [
-            "domain:2ip.ru",
-            "domain:2ip.io",
-            "habr.com",
-            "4pda.to",
-            "4pda.ru",
-            "kemono.su",
-            "jut.su",
-            "kara.su",
-            "theins.ru",
-            "tvrain.ru",
-            "echo.msk.ru",
-            "the-village.ru",
-            "snob.ru",
-            "novayagazeta.ru",
-            "moscowtimes.ru"
-          ],
-          "outboundTag": "proxy"
-        },
-        {
-          "domain": ["geosite:private", "geosite:category-ru"],
-          "outboundTag": "direct"
-        },
-        {
-          "ip": ["geoip:ru", "geoip:private"],
-          "outboundTag": "direct"
-        }
-      ]
-    },
-    "stats": {}
+  "profile": {
+    "store-selected": true
   },
-  {
-    "dns": {
-      "queryStrategy": "IPIfNonMatch",
-      "servers": [
-        {
-          "address": "1.1.1.1",
-          "skipFallback": false
-        }
-      ],
-      "tag": "dns_out"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true,
-          "userLevel": 8
-        },
-        "sniffing": {
-          "destOverride": ["http", "tls", "fakedns"],
-          "enabled": true
-        },
-        "tag": "socks"
+  "tun": {
+    "enable": true,
+    "stack": "gvisor",
+    "auto-route": true,
+    "strict-route": true,
+    "auto-detect-interface": true,
+    "dns-hijack": [
+      "any:53"
+    ]
+  },
+  "proxies": [
+    {
+      "name": "🇨🇿⚡ Чехия ᴺᴱᵂ",
+      "type": "vless",
+      "server": "cz.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "haa.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
       },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "userLevel": 8
-        },
-        "tag": "http"
-      }
-    ],
-    "log": {
-      "access": "/private/var/mobile/Containers/Shared/AppGroup/0493EE28-F6F1-46DF-A50E-2A75EF129325/Library/Application Support/Xray/logs/access",
-      "dnsLog": true,
-      "loglevel": "Warning"
+      "client-fingerprint": "qq"
     },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "de.subv.ru",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "a44a6111-be40-4a96-8947-cb82fe37723b"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "qq",
-            "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
-            "serverName": "foto4u.su",
-            "shortId": "428ef87fd47a3a32"
-          },
-          "security": "reality",
-          "tcpSettings": {}
-        },
-        "tag": "proxy"
+    {
+      "name": "🇩🇪¹  Германия",
+      "type": "vless",
+      "server": "bde.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "tsushima.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
       },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "system": {
-        "statsOutboundDownlink": true,
-        "statsOutboundUplink": true
-      }
+      "client-fingerprint": "qq"
     },
-    "remarks": "🇩🇪²⚡ Германия",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "domain": [
-            "localhost",
-            "localhost.localdomain",
-            "local",
-            "*.local",
-            "*.localdomain",
-            "*.lan",
-            "*.internal"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "127.0.0.0/8",
-            "10.0.0.0/8",
-            "172.16.0.0/12",
-            "192.168.0.0/16",
-            "169.254.0.0/16",
-            "::1/128",
-            "fc00::/7",
-            "fe80::/10"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "outboundTag": "proxy",
-          "protocol": ["bittorrent"],
-          "type": "field"
-        },
-        {
-          "domain": [
-            "domain:2ip.ru",
-            "domain:2ip.io",
-            "habr.com",
-            "4pda.to",
-            "4pda.ru",
-            "kemono.su",
-            "jut.su",
-            "kara.su",
-            "theins.ru",
-            "tvrain.ru",
-            "echo.msk.ru",
-            "the-village.ru",
-            "snob.ru",
-            "novayagazeta.ru",
-            "moscowtimes.ru"
-          ],
-          "outboundTag": "proxy"
-        },
-        {
-          "domain": ["geosite:private", "geosite:category-ru"],
-          "outboundTag": "direct"
-        },
-        {
-          "ip": ["geoip:ru", "geoip:private"],
-          "outboundTag": "direct"
-        }
+    {
+      "name": "🇵🇱⚡ Польша",
+      "type": "vless",
+      "server": "pl.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "pl.cdns.su",
+      "reality-opts": {
+        "public-key": "hSTtlpXKAYVVu5ybX3hQfq8dfsUrO_HoFVgfGGoCHVw",
+        "short-id": "cf16e85b3b7cd68d"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇱🇹¹⚡ Литва",
+      "type": "vless",
+      "server": "lt.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "",
+      "reality-opts": {
+        "public-key": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+        "short-id": "695f0df252f9889d"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇬🇧⚡ Великобритания ᴺᴱᵂ",
+      "type": "vless",
+      "server": "uk.jojackcraft.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ihep.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇳🇱⚡ Нидерланды",
+      "type": "vless",
+      "server": "rnl.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "rnl.subv.ru",
+      "reality-opts": {
+        "public-key": "sxyxV0_y1o09gKJBL9AJJyRSEg6MiYK0j-kb5unzHh4",
+        "short-id": "ba262a270ecb844e"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇩🇪²⚡ Германия",
+      "type": "vless",
+      "server": "de.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "drh.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇦🇱⚡ Албания",
+      "type": "vless",
+      "server": "al0.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "al0.jojack.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇪🇪⚡ Эстония",
+      "type": "vless",
+      "server": "es.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "es.subv.ru",
+      "reality-opts": {
+        "public-key": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+        "short-id": "fb7c6f68f092acb1"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇸🇪⚡Швеция ᴺᴱᵂ",
+      "type": "vless",
+      "server": "se.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "eot.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇷🇺² Питер (Без блокировок) ᴺᴱᵂ",
+      "type": "vless",
+      "server": "185.200.240.188",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "intendant.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇷🇺¹⚡ Москва (Без блокировок)",
+      "type": "vless",
+      "server": "pin-msk.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "studopedia.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇷🇺² Москва (Без блокировок) ᴺᴱᵂ",
+      "type": "vless",
+      "server": "ru.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "belorussia.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇷🇺⁴⚡Москва (Без блокировок) ᴺᴱᵂ",
+      "type": "vless",
+      "server": "188.225.80.23",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "4check.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇮⚡ Финляндия",
+      "type": "vless",
+      "server": "fi.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "fi.jojack.ru",
+      "reality-opts": {
+        "public-key": "u26A516I3BCfUMPOo6rw0-XYt0C2sCWaPNP2pNdtxzw",
+        "short-id": "51897a5b7dc2e1c9"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇳🇱⚡ Нидерланды  ᴺᴱᵂ",
+      "type": "vless",
+      "server": "nl.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ipb.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇦🇹 Австрия ᴺᴱᵂ",
+      "type": "vless",
+      "server": "at.titun.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "coomer.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇱🇹²⚡ Литва ᴺᴱᵂ",
+      "type": "vless",
+      "server": "redlt.jojackcraft.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "goo.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇷 Франция",
+      "type": "vless",
+      "server": "frt.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "frt.subv.ru",
+      "reality-opts": {
+        "public-key": "8LWgKu6h8cXgOAixKaKPdGponKkAeQaq-IszDEQ4ojM",
+        "short-id": "2f5ce2df83a89d2f"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇸🇪 Швеция",
+      "type": "vless",
+      "server": "80.239.189.82",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "sw1.subv.ru",
+      "reality-opts": {
+        "public-key": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+        "short-id": "dcd27eb15ebed5f2"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇧🇾 Беларусь",
+      "type": "vless",
+      "server": "hb-by1.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "hb-by1.cdns.su",
+      "reality-opts": {
+        "public-key": "0L6FE1vTechnKhN9LxFgmcDzqGVIfEQz8ZBGfvzKGzg",
+        "short-id": "72e01ea131462b19"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇰🇿 Казахстан",
+      "type": "vless",
+      "server": "kz.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "mba.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇺🇸 Виргиния",
+      "type": "vless",
+      "server": "vir.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "vir.jojack.ru",
+      "reality-opts": {
+        "public-key": "u4S6MmhgEOkPjlLVZ6twDLy-V9JIpLtyj8vDobOVM0w",
+        "short-id": "272dff4ca15ccedc"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇺🇸 Кремниевая Долина",
+      "type": "vless",
+      "server": "31.57.46.222",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "us-west1.subv.ru",
+      "reality-opts": {
+        "public-key": "u4S6MmhgEOkPjlLVZ6twDLy-V9JIpLtyj8vDobOVM0w",
+        "short-id": "272dff4ca15ccedc"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇺🇸 Секокус",
+      "type": "vless",
+      "server": "us.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "us.jojack.ru",
+      "reality-opts": {
+        "public-key": "u4S6MmhgEOkPjlLVZ6twDLy-V9JIpLtyj8vDobOVM0w",
+        "short-id": "a0904346ad1b4e87"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇧🇷 Бразилия",
+      "type": "vless",
+      "server": "br.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "br.jojack.ru",
+      "reality-opts": {
+        "public-key": "su3dq3BDLDkX-jIjq3GyVUXwqzD7CNVYzKtOcO4HQ24",
+        "short-id": "3846b9259d66cc64"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇺🇦🌍 Украина ᴳᴱᴼ ᶠᵃᵏᵉ",
+      "type": "vless",
+      "server": "fua.subv.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "fua.subv.ru",
+      "reality-opts": {
+        "public-key": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+        "short-id": "695f0df252f9889d"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇰🇷🧪 Корея ᵗᵉˢᵗ",
+      "type": "vless",
+      "server": "ko.jojack.ru",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "",
+      "reality-opts": {
+        "public-key": "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+        "short-id": "c9f531958ae0c87c"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇦🇶 Антарктика ",
+      "type": "vless",
+      "server": "2.27.27.129",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "rodniki-rossii.su",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "Проверяйте игнорируя пинг ⤵️",
+      "type": "vless",
+      "server": "185.177.238.57",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "al.cdn.stun.su",
+      "reality-opts": {
+        "public-key": "su3dq3BDLDkX-jIjq3GyVUXwqzD7CNVYzKtOcO4HQ24",
+        "short-id": "60e881e993d39a1e"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №0¹",
+      "type": "vless",
+      "server": "h64.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №0²",
+      "type": "vless",
+      "server": "h64.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "web.max.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №0³",
+      "type": "vless",
+      "server": "h64.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "smartcaptcha.yandexcloud.net",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №1¹",
+      "type": "vless",
+      "server": "y51.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №1²",
+      "type": "vless",
+      "server": "y51.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №2¹",
+      "type": "vless",
+      "server": "v217.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №2²",
+      "type": "vless",
+      "server": "v217.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №3¹",
+      "type": "vless",
+      "server": "v146.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №3²",
+      "type": "vless",
+      "server": "v146.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №4¹",
+      "type": "vless",
+      "server": "v89.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №4²",
+      "type": "vless",
+      "server": "v89.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №5¹",
+      "type": "vless",
+      "server": "y84.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №5²",
+      "type": "vless",
+      "server": "y84.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №5³",
+      "type": "vless",
+      "server": "y84.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "web.max.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №5⁴",
+      "type": "vless",
+      "server": "y84.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "smartcaptcha.yandexcloud.net",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №5⁵",
+      "type": "vless",
+      "server": "y84.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "sso.passport.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №6¹",
+      "type": "vless",
+      "server": "y158.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "api-maps.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №6²",
+      "type": "vless",
+      "server": "y158.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №6³",
+      "type": "vless",
+      "server": "y158.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "web.max.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №6⁴",
+      "type": "vless",
+      "server": "y158.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "smartcaptcha.yandexcloud.net",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №6⁵",
+      "type": "vless",
+      "server": "y158.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "sso.passport.yandex.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №7¹",
+      "type": "vless",
+      "server": "с185.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    },
+    {
+      "name": "🇫🇲 Обход №8¹",
+      "type": "vless",
+      "server": "r79.cdns.su",
+      "port": 443,
+      "network": "tcp",
+      "udp": true,
+      "uuid": "a44a6111-be40-4a96-8947-cb82fe37723b",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": true,
+      "servername": "ads.x5.ru",
+      "reality-opts": {
+        "public-key": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+        "short-id": "428ef87fd47a3a32"
+      },
+      "client-fingerprint": "qq"
+    }
+  ],
+  "proxy-groups": [
+    {
+      "name": "islamVPN",
+      "type": "select",
+      "proxies": [
+        "🇨🇿⚡ Чехия ᴺᴱᵂ",
+        "🇩🇪¹  Германия",
+        "🇵🇱⚡ Польша",
+        "🇱🇹¹⚡ Литва",
+        "🇬🇧⚡ Великобритания ᴺᴱᵂ",
+        "🇳🇱⚡ Нидерланды",
+        "🇩🇪²⚡ Германия",
+        "🇦🇱⚡ Албания",
+        "🇪🇪⚡ Эстония",
+        "🇸🇪⚡Швеция ᴺᴱᵂ",
+        "🇷🇺² Питер (Без блокировок) ᴺᴱᵂ",
+        "🇷🇺¹⚡ Москва (Без блокировок)",
+        "🇷🇺² Москва (Без блокировок) ᴺᴱᵂ",
+        "🇷🇺⁴⚡Москва (Без блокировок) ᴺᴱᵂ",
+        "🇫🇮⚡ Финляндия",
+        "🇳🇱⚡ Нидерланды  ᴺᴱᵂ",
+        "🇦🇹 Австрия ᴺᴱᵂ",
+        "🇱🇹²⚡ Литва ᴺᴱᵂ",
+        "🇫🇷 Франция",
+        "🇸🇪 Швеция",
+        "🇧🇾 Беларусь",
+        "🇰🇿 Казахстан",
+        "🇺🇸 Виргиния",
+        "🇺🇸 Кремниевая Долина",
+        "🇺🇸 Секокус",
+        "🇧🇷 Бразилия",
+        "🇺🇦🌍 Украина ᴳᴱᴼ ᶠᵃᵏᵉ",
+        "🇰🇷🧪 Корея ᵗᵉˢᵗ",
+        "🇦🇶 Антарктика ",
+        "Проверяйте игнорируя пинг ⤵️",
+        "🇫🇲 Обход №0¹",
+        "🇫🇲 Обход №0²",
+        "🇫🇲 Обход №0³",
+        "🇫🇲 Обход №1¹",
+        "🇫🇲 Обход №1²",
+        "🇫🇲 Обход №2¹",
+        "🇫🇲 Обход №2²",
+        "🇫🇲 Обход №3¹",
+        "🇫🇲 Обход №3²",
+        "🇫🇲 Обход №4¹",
+        "🇫🇲 Обход №4²",
+        "🇫🇲 Обход №5¹",
+        "🇫🇲 Обход №5²",
+        "🇫🇲 Обход №5³",
+        "🇫🇲 Обход №5⁴",
+        "🇫🇲 Обход №5⁵",
+        "🇫🇲 Обход №6¹",
+        "🇫🇲 Обход №6²",
+        "🇫🇲 Обход №6³",
+        "🇫🇲 Обход №6⁴",
+        "🇫🇲 Обход №6⁵",
+        "🇫🇲 Обход №7¹",
+        "🇫🇲 Обход №8¹"
       ]
-    },
-    "stats": {}
-  }
-]
+    }
+  ],
+  "rules": [
+    "MATCH,islamVPN"
+  ]
+}
