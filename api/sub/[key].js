@@ -2,8 +2,23 @@ export default async function handler(req, res) {
   try {
     const key = req.query.key;
 
+    const inactiveConfig = [
+      {
+        remarks: "❌ Продлите доступ",
+        outbounds: [{ protocol: "blackhole", tag: "block" }]
+      },
+      {
+        remarks: "👉 @islamvvpnbot",
+        outbounds: [{ protocol: "blackhole", tag: "block" }]
+      }
+    ];
+
+    if (!key) {
+      return res.status(200).json(inactiveConfig);
+    }
+
     const userRes = await fetch(
-      `${process.env.SUPABASE_URL}/rest/v1/users?subscription_key=eq.${encodeURIComponent(key)}&select=vpn_uuid,status,expires_at`,
+      `${process.env.SUPABASE_URL}/rest/v1/users?subscription_key=eq.${encodeURIComponent(key)}&select=status,expires_at`,
       {
         headers: {
           apikey: process.env.SUPABASE_SERVICE_KEY,
@@ -19,30 +34,25 @@ export default async function handler(req, res) {
       !user ||
       user.status !== "active" ||
       !user.expires_at ||
-      new Date(user.expires_at) < new Date() ||
-      !user.vpn_uuid
+      new Date(user.expires_at) < new Date()
     ) {
-      res.setHeader("Content-Type", "application/json; charset=utf-8");
-      return res.status(200).send(JSON.stringify([
-        { remarks: "❌ Продлите доступ", outbounds: [{ protocol: "blackhole", tag: "block" }] },
-        { remarks: "👉 @islamvvpnbot", outbounds: [{ protocol: "blackhole", tag: "block" }] }
-      ]));
+      return res.status(200).json(inactiveConfig);
     }
 
     const configRes = await fetch("https://vpn-sitess.vercel.app/data.json", {
       cache: "no-store"
     });
 
-    let configText = await configRes.text();
-    configText = configText.replaceAll("{{VPN_UUID}}", user.vpn_uuid);
+    const configText = await configRes.text();
 
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
-    res.setHeader("Access-Control-Allow-Origin", "*");
 
     return res.status(200).send(configText);
   } catch (e) {
-    res.setHeader("Content-Type", "application/json; charset=utf-8");
-    return res.status(200).send(JSON.stringify({ error: String(e) }));
+    return res.status(200).json({
+      error: "function error",
+      message: String(e)
+    });
   }
 }
