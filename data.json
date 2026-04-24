@@ -1,153 +1,711 @@
 {
-  "burstObservatory": {
-    "pingConfig": {
-      "connectivity": "",
-      "destination": "http://www.gstatic.com/generate_204",
-      "interval": "120s",
-      "sampling": 1,
-      "timeout": "3s"
+  "burstObservatory" : {
+    "pingConfig" : {
+      "connectivity" : "",
+      "destination" : "http:\/\/www.gstatic.com\/generate_204",
+      "interval" : "120s",
+      "sampling" : 1,
+      "timeout" : "3s"
     },
-    "subjectSelector": ["black", "proxy"]
+    "subjectSelector" : [
+      "black",
+      "proxy"
+    ]
   },
-  "dns": {
-    "queryStrategy": "IPIfNonMatch",
-    "servers": [
+  "dns" : {
+    "queryStrategy" : "IPIfNonMatch",
+    "servers" : [
       {
-        "address": "1.1.1.1",
-        "skipFallback": false
+        "address" : "1.1.1.1",
+        "skipFallback" : false
       }
     ],
-    "tag": "dns_out"
+    "tag" : "dns_out"
   },
-  "inbounds": [
+  "inbounds" : [
     {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true,
+        "userLevel" : 8
       },
-      "sniffing": {
-        "destOverride": ["http", "tls", "fakedns"],
-        "enabled": true
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "fakedns"
+        ],
+        "enabled" : true
       },
-      "tag": "socks"
+      "tag" : "socks"
     },
     {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "userLevel" : 8
       },
-      "tag": "http"
+      "tag" : "http"
     },
     {
-      "listen": "127.0.0.1",
-      "port": 10901,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "network": "tcp,udp"
+      "listen" : "127.0.0.1",
+      "port" : 10901,
+      "protocol" : "dokodemo-door",
+      "settings" : {
+        "address" : "127.0.0.1",
+        "network" : "tcp,udp"
       },
-      "tag": "loopback-entry"
+      "tag" : "loopback-entry"
     },
     {
-      "listen": "127.0.0.1",
-      "port": 10902,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "network": "tcp,udp"
+      "listen" : "127.0.0.1",
+      "port" : 10902,
+      "protocol" : "dokodemo-door",
+      "settings" : {
+        "address" : "127.0.0.1",
+        "network" : "tcp,udp"
       },
-      "tag": "loopback-fallback"
+      "tag" : "loopback-fallback"
     }
   ],
-  "log": {
-    "access": "/private/var/mobile/Containers/Shared/AppGroup/.../logs/access",
-    "dnsLog": true,
-    "loglevel": "Warning"
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/0493EE28-F6F1-46DF-A50E-2A75EF129325\/Library\/Application Support\/Xray\/logs\/access",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
   },
-  "outbounds": [
+  "outbounds" : [
     {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
+      "mux" : {
+        "concurrency" : -1,
+        "enabled" : false,
+        "xudpConcurrency" : 8,
+        "xudpProxyUDP443" : ""
+      },
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
           {
-            "address": "y51.cdns.su",
-            "port": 443,
-            "users": [
+            "address" : "y51.cdns.su",
+            "port" : 443,
+            "users" : [
               {
-                "id": "{{VPN_UUID}}",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
               }
             ]
           }
         ]
       },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "fingerprint": "qq",
-          "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
-          "serverName": "ads.x5.ru",
-          "shortId": "428ef87fd47a3a32"
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "ads.x5.ru",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
         }
       },
-      "tag": "proxy"
+      "tag" : "proxy"
     },
-
     {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
           {
-            "address": "al0.jojack.ru",
-            "port": 443,
-            "users": [
+            "address" : "al0.jojack.ru",
+            "port" : 443,
+            "users" : [
               {
-                "id": "{{VPN_UUID}}",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
               }
             ]
           }
         ]
       },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "fingerprint": "qq",
-          "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
-          "serverName": "al0.jojack.ru",
-          "shortId": "428ef87fd47a3a32"
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "al0.jojack.ru",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
         }
       },
-      "tag": "black"
-    }
+      "tag" : "black"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "uk.jojackcraft.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "mba.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
 
-    // ⚠️ остальные outbounds точно такие же
-    // просто везде уже стоит:
-    // "id": "{{VPN_UUID}}"
+        }
+      },
+      "tag" : "black-2"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "cz.titun.su",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "g-u.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-3"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "pl.cdns.su",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "hSTtlpXKAYVVu5ybX3hQfq8dfsUrO_HoFVgfGGoCHVw",
+          "serverName" : "pl.cdns.su",
+          "shortId" : "d71095e3b812643f",
+          "spiderX" : "\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-4"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "de.subv.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "pr-cy.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-5"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "lt.subv.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+          "serverName" : "",
+          "shortId" : "7349db07f8ebff09",
+          "spiderX" : "\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-6"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "es.subv.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "ca5sfJNcjkh3oNt51hRexXbGWgITAqCprGSU-YKCJBA",
+          "serverName" : "es.subv.ru",
+          "shortId" : "79d4a74b9ba1b694",
+          "spiderX" : "\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-7"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "rnl.subv.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "sxyxV0_y1o09gKJBL9AJJyRSEg6MiYK0j-kb5unzHh4",
+          "serverName" : "rnl.subv.ru",
+          "shortId" : "ba262a270ecb844e",
+          "spiderX" : "\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-8"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "bde.titun.su",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "omsk.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-9"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "se.titun.su",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "diart.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-10"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "fi.jojack.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "u26A516I3BCfUMPOo6rw0-XYt0C2sCWaPNP2pNdtxzw",
+          "serverName" : "fi.jojack.ru",
+          "shortId" : "12f7cb94d832dcba",
+          "spiderX" : "\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-11"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "nl.titun.su",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "patents.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-12"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "redlt.jojackcraft.ru",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "a44062dd-d513-4d6e-b029-496aae3dbd51"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+          "serverName" : "goo.su",
+          "shortId" : "428ef87fd47a3a32"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "black-13"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    },
+    {
+      "protocol" : "loopback",
+      "settings" : {
+        "inboundTag" : "loopback-entry"
+      },
+      "tag" : "loopback-entry-out"
+    },
+    {
+      "protocol" : "loopback",
+      "settings" : {
+        "inboundTag" : "loopback-fallback"
+      },
+      "tag" : "loopback-fallback-out"
+    }
   ],
-
-  "policy": {
-    "system": {
-      "statsOutboundDownlink": true,
-      "statsOutboundUplink": true
+  "policy" : {
+    "system" : {
+      "statsOutboundDownlink" : true,
+      "statsOutboundUplink" : true
     }
   },
-  "remarks": "🇫🇲 Обход №1²",
-
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": []
+  "remarks" : "🇫🇲 Обход №1²",
+  "routing" : {
+    "balancers" : [
+      {
+        "fallbackTag" : "loopback-fallback-out",
+        "selector" : [
+          "black"
+        ],
+        "strategy" : {
+          "settings" : {
+            "baselines" : [
+              "200ms",
+              "400ms"
+            ],
+            "expected" : 1,
+            "maxRTT" : "800ms",
+            "tolerance" : 0.10000000000000001
+          },
+          "type" : "leastLoad"
+        },
+        "tag" : "BLACK_BALANCER"
+      }
+    ],
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "domain" : [
+          "localhost",
+          "localhost.localdomain",
+          "local",
+          "*.local",
+          "*.localdomain",
+          "*.lan",
+          "*.internal"
+        ],
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "ip" : [
+          "127.0.0.0\/8",
+          "10.0.0.0\/8",
+          "172.16.0.0\/12",
+          "192.168.0.0\/16",
+          "169.254.0.0\/16",
+          "::1\/128",
+          "fc00::\/7",
+          "fe80::\/10"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "outboundTag" : "BLACK_BALANCER",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "BLACK_BALANCER",
+        "domain" : [
+          "domain:2ip.ru",
+          "domain:2ip.io",
+          "habr.com",
+          "4pda.to",
+          "4pda.ru",
+          "kemono.su",
+          "jut.su",
+          "kara.su",
+          "theins.ru",
+          "tvrain.ru",
+          "echo.msk.ru",
+          "the-village.ru",
+          "snob.ru",
+          "novayagazeta.ru",
+          "moscowtimes.ru"
+        ],
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "geosite:private",
+          "geosite:category-ru",
+          "geoip:ru",
+          "geoip:private"
+        ],
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "ip" : [
+          "geoip:ru",
+          "geoip:private"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "BLACK_BALANCER",
+        "inboundTag" : [
+          "loopback-entry"
+        ],
+        "network" : "tcp,udp",
+        "type" : "field"
+      },
+      {
+        "inboundTag" : [
+          "loopback-fallback"
+        ],
+        "network" : "tcp,udp",
+        "outboundTag" : "proxy",
+        "type" : "field"
+      },
+      {
+        "network" : "tcp,udp",
+        "outboundTag" : "loopback-entry-out",
+        "type" : "field"
+      }
+    ]
   },
+  "stats" : {
 
-  "stats": {}
+  }
 }
