@@ -441,6 +441,26 @@ document.getElementById("connectBtn").onclick = () => {
 setTimeout(() => {
   window.location.href = redirect;
 }, 1500);
+<button id="connectBtn">🚀 Подключиться к Happ</button>
+ if (!text) {
+      alert("Скопируй ссылку из бота сначала!");
+      return;
+    }
+
+    // если уже happ ссылка — используем как есть
+    let happLink = text.startsWith("happ://")
+      ? text
+      : `happ://add/${text}`;
+
+    // редирект через stun (чтобы работало на iOS)
+    let redirect = `https://r.stun.su/?to=${encodeURIComponent(happLink)}`;
+
+    window.location.href = redirect;
+
+  } catch (e) {
+    alert("Браузер не дал доступ к буферу 😢\nПопробуй вставить вручную");
+  }
+};
 </script>
 </body>
 </html>
