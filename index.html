@@ -3,464 +3,507 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premium VPN — подключение Happ</title>
-  <meta name="description" content="Быстрое и безопасное подключение VPN через Happ" />
+  <meta name="description" content="Islam VPN - Инструкция подключения Happ" />
+  <title>Islam VPN - Инструкция подключения</title>
   <style>
-    :root {
-      --bg: #050713;
-      --card: rgba(255,255,255,.085);
-      --card-2: rgba(255,255,255,.13);
-      --text: #f8fbff;
-      --muted: rgba(248,251,255,.72);
-      --line: rgba(255,255,255,.16);
-      --blue: #51c8ff;
-      --cyan: #68fff0;
-      --violet: #9a6cff;
-      --pink: #ff5bd8;
-      --green: #7cffaa;
-      --warning: #ffd36a;
-      --shadow: 0 30px 100px rgba(0,0,0,.55);
-      --radius: 30px;
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #0b1020;
+      --bg2: #121a31;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #c6d0ea;
+      --accent: #4f8cff;
+      --accent-2: #7c5cff;
+      --success: #19c37d;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: var(--font);
+      font-family: Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 12%, rgba(81,200,255,.26), transparent 34%),
-        radial-gradient(circle at 86% 12%, rgba(154,108,255,.33), transparent 34%),
-        radial-gradient(circle at 72% 86%, rgba(255,91,216,.18), transparent 34%),
-        linear-gradient(145deg, #03040b 0%, #070b1d 42%, #090519 100%);
-      overflow-x: hidden;
+        radial-gradient(circle at top left, rgba(79, 140, 255, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(124, 92, 255, 0.18), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      min-height: 100vh;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 58px 58px;
-      mask-image: radial-gradient(circle at center, black, transparent 78%);
-      opacity: .38;
-    }
-
-    .orb {
-      position: fixed;
-      width: 380px;
-      height: 380px;
-      border-radius: 999px;
-      filter: blur(18px);
-      opacity: .45;
-      pointer-events: none;
-      animation: float 12s ease-in-out infinite;
-      z-index: 0;
-    }
-    .orb.one { left: -140px; top: 120px; background: rgba(81,200,255,.35); }
-    .orb.two { right: -150px; top: 170px; background: rgba(154,108,255,.38); animation-delay: -4s; }
-    .orb.three { left: 48%; bottom: -190px; background: rgba(255,91,216,.25); animation-delay: -8s; }
-
-    @keyframes float {
-      0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(25px,-35px,0) scale(1.08); }
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: min(1180px, calc(100% - 32px));
+    .container {
+      width: 100%;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 26px 0 60px;
+      padding: 24px 16px 40px;
     }
 
-    header {
+    .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border-radius: 24px;
-      box-shadow: 0 14px 60px rgba(0,0,0,.24);
+      gap: 16px;
+      margin-bottom: 24px;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -.03em; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
     .logo {
-      width: 44px; height: 44px; border-radius: 16px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue) 45%, var(--violet));
-      display: grid; place-items: center;
-      box-shadow: 0 0 32px rgba(81,200,255,.5);
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4f8cff, #7c5cff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .logo svg { width: 24px; height: 24px; filter: drop-shadow(0 3px 10px rgba(0,0,0,.25)); }
-    .status {
-      display: flex; align-items: center; gap: 9px;
-      color: var(--muted); font-size: 14px;
-      padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px;
-      background: rgba(255,255,255,.055);
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .dot { width: 8px; height: 8px; border-radius: 99px; background: var(--green); box-shadow: 0 0 18px var(--green); }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      padding: 12px 16px;
+      border-radius: 14px;
+      transition: 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .telegram-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .telegram-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 28px;
-      align-items: stretch;
-      padding: 44px 0 28px;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.055));
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .panel::before {
-      content: ""; position: absolute; inset: -1px;
-      background: linear-gradient(120deg, rgba(104,255,240,.35), transparent 32%, rgba(154,108,255,.25), transparent 68%, rgba(255,91,216,.25));
-      opacity: .55; pointer-events: none;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      padding: 1px;
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
+      padding: 26px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
-    .hero-copy { padding: 46px; min-height: 610px; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 10px 14px; border-radius: 999px;
-      border: 1px solid rgba(104,255,240,.28);
-      background: rgba(104,255,240,.08);
-      color: #d8fffb; font-weight: 750; font-size: 14px;
-      box-shadow: 0 0 28px rgba(104,255,240,.13);
-    }
-    h1 {
-      margin: 22px 0 16px;
-      font-size: clamp(44px, 7vw, 82px);
-      line-height: .91;
-      letter-spacing: -.075em;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, #fff, #b9f7ff 32%, #c7b6ff 66%, #ffd4f5);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 50px rgba(81,200,255,.12);
-    }
-    .lead { color: var(--muted); font-size: 19px; line-height: 1.65; max-width: 650px; margin: 0 0 28px; }
-
-    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0 22px; }
-    button, .btn {
-      appearance: none; border: 0; cursor: pointer; text-decoration: none;
-      color: #06101d; font-weight: 900; font-size: 16px;
-      padding: 17px 18px; border-radius: 18px;
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-      min-height: 58px;
-    }
-    .primary {
-      background: linear-gradient(135deg, var(--cyan), var(--blue) 50%, #a98cff);
-      box-shadow: 0 18px 50px rgba(81,200,255,.32), 0 0 0 1px rgba(255,255,255,.35) inset;
-    }
-    .secondary {
-      color: var(--text); background: rgba(255,255,255,.08); border: 1px solid var(--line);
-      box-shadow: 0 12px 40px rgba(0,0,0,.18);
-    }
-    button:hover, .btn:hover { transform: translateY(-2px); }
-    .primary:hover { box-shadow: 0 22px 70px rgba(81,200,255,.42), 0 0 0 1px rgba(255,255,255,.45) inset; }
-    .secondary:hover { background: rgba(255,255,255,.13); }
-
-    .linkbox {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,.19);
-    }
-    .linkbox small { display: block; color: var(--muted); margin-bottom: 8px; }
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 12px; line-height: 1.45; color: rgba(255,255,255,.86);
-      word-break: break-all;
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      line-height: 1.2;
     }
 
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
-    .stat { padding: 16px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.06); }
-    .stat b { display: block; font-size: 24px; letter-spacing: -.04em; }
-    .stat span { color: var(--muted); font-size: 13px; }
-
-    .phone { padding: 28px; display: grid; place-items: center; min-height: 610px; }
-    .device {
-      width: min(360px, 100%);
-      aspect-ratio: 9 / 18.5;
-      border-radius: 44px;
-      padding: 12px;
-      background: linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.24);
-      box-shadow: 0 35px 110px rgba(0,0,0,.55), 0 0 80px rgba(154,108,255,.18);
-      position: relative;
-      transform: rotate(2deg);
-      animation: phone 7s ease-in-out infinite;
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
     }
-    @keyframes phone { 0%,100%{transform: rotate(2deg) translateY(0)} 50%{transform: rotate(-1deg) translateY(-12px)} }
-    .screen {
-      height: 100%; border-radius: 34px; overflow: hidden; position: relative;
-      background: radial-gradient(circle at 50% 10%, rgba(104,255,240,.24), transparent 28%), linear-gradient(180deg, #10172f, #070914);
-      border: 1px solid rgba(255,255,255,.12);
+
+    .platform-switch {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0 0;
+      flex-wrap: wrap;
+    }
+
+    .platform-btn {
+      border: none;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      transition: 0.2s ease;
+    }
+
+    .platform-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-color: transparent;
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.28);
+    }
+
+    .section {
+      margin-top: 22px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
       padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
-    .notch { width: 92px; height: 22px; border-radius: 0 0 18px 18px; background: #050713; position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
-    .vpn-card { margin-top: 42px; padding: 18px; border-radius: 24px; background: rgba(255,255,255,.1); border: 1px solid var(--line); }
-    .ring {
-      width: 168px; height: 168px; margin: 30px auto;
-      border-radius: 999px;
-      background: conic-gradient(from 0deg, var(--cyan), var(--blue), var(--violet), var(--pink), var(--cyan));
-      display: grid; place-items: center;
-      box-shadow: 0 0 70px rgba(81,200,255,.38);
-      animation: spin 7s linear infinite;
+
+    .step {
+      margin-bottom: 22px;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .ring::after { content: "ON"; width: 132px; height: 132px; border-radius: 999px; background: #07101e; display: grid; place-items: center; color: var(--green); font-size: 34px; font-weight: 950; letter-spacing: -.06em; box-shadow: inset 0 0 28px rgba(124,255,170,.12); }
-    .rows { display: grid; gap: 10px; }
-    .row { height: 46px; border-radius: 15px; background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.09); display: flex; align-items: center; justify-content: space-between; padding: 0 13px; color: var(--muted); font-size: 13px; }
-    .pill { padding: 5px 9px; border-radius: 99px; background: rgba(124,255,170,.13); color: #b8ffd1; }
 
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 8px 0 26px; }
-    .feature { padding: 22px; border-radius: 26px; border: 1px solid var(--line); background: rgba(255,255,255,.065); backdrop-filter: blur(20px); min-height: 160px; }
-    .icon { width: 44px; height: 44px; border-radius: 16px; background: rgba(104,255,240,.1); border: 1px solid rgba(104,255,240,.2); display: grid; place-items: center; margin-bottom: 14px; font-size: 22px; }
-    .feature h3 { margin: 0 0 8px; font-size: 18px; }
-    .feature p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
-
-    .steps { padding: 28px; margin-top: 16px; }
-    .steps h2 { margin: 0 0 18px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -.055em; }
-    .step-list { display: grid; gap: 12px; }
-    .step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; padding: 16px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.055); }
-    .num { width: 44px; height: 44px; border-radius: 15px; display: grid; place-items: center; font-weight: 950; background: linear-gradient(135deg, var(--blue), var(--violet)); box-shadow: 0 0 28px rgba(154,108,255,.24); }
-    .step b { display: block; margin-bottom: 4px; }
-    .step span { color: var(--muted); line-height: 1.5; font-size: 14px; }
-
-    .toast {
-      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(30px);
-      opacity: 0; pointer-events: none;
-      padding: 14px 18px; border-radius: 16px; background: rgba(10,16,34,.82); border: 1px solid var(--line); backdrop-filter: blur(18px);
-      box-shadow: 0 18px 60px rgba(0,0,0,.4); z-index: 20;
-      transition: .25s ease;
+    .step:last-child {
+      margin-bottom: 0;
     }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .warning { color: var(--warning); }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; padding-top: 24px; }
-      .hero-copy, .phone { min-height: auto; padding: 28px; }
-      .grid { grid-template-columns: 1fr; }
+    .step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
     }
-    @media (max-width: 560px) {
-      .wrap { width: min(100% - 22px, 1180px); padding-top: 12px; }
-      header { padding: 12px; }
-      .status { display: none; }
-      .hero-copy { padding: 24px; }
-      h1 { font-size: 44px; }
-      .lead { font-size: 16px; }
-      .actions { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr; }
-      .device { transform: none; max-width: 310px; }
-      .phone { padding: 18px; }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .step p,
+    .note {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      min-height: 50px;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(79, 140, 255, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .copy-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      word-break: break-all;
+      color: #dfe7ff;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .success {
+      margin-top: 12px;
+      color: #9af0c8;
+      font-size: 14px;
+      display: none;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #94a3b8;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .brand-text h1 {
+        font-size: 24px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn,
+      .telegram-btn,
+      .platform-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <div class="orb three"></div>
-
-  <main class="wrap">
-    <header>
+  <div class="container">
+    <div class="topbar">
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3.2 9.4-7 11-3.8-1.6-7-6-7-11V5l7-3z" fill="white" opacity=".96"/><path d="M9.4 12.2l1.7 1.7 3.9-4.2" stroke="#111827" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="logo">
+          <!-- Если будет свой логотип, замени на:
+          <img src="logo.png" alt="Islam VPN logo">
+          -->
+          IV
         </div>
-        <div>
-          <div>Premium VPN</div>
-          <small style="color:var(--muted);font-weight:700">Secure access</small>
-        </div>
-      </div>
-      <div class="status"><span class="dot"></span> Сервер готов к подключению</div>
-    </header>
-
-    <section class="hero">
-      <div class="panel hero-copy">
-        <div class="badge">⚡ Индивидуальная подписка Happ</div>
-        <h1><span class="gradient-text">VPN нового уровня</span></h1>
-        <p class="lead">Нажми кнопку подключения — сайт откроет Happ и добавит твою персональную подписку. Если приложение не открылось, скопируй ссылку и вставь её вручную в Happ.</p>
-
-        <div class="actions">
-          <button class="primary" id="connectBtn">🚀 Подключиться в Happ</button>
-          <button class="secondary" id="copyBtn">📋 Скопировать Happ-ссылку</button>
-        </div>
-
-        <div class="linkbox">
-          <small>Твоя ссылка для ручного добавления в Happ</small>
-          <div class="mono" id="happLinkText">Загрузка...</div>
-        </div>
-
-        <div class="stats">
-          <div class="stat"><b>1 клик</b><span>быстрое подключение</span></div>
-          <div class="stat"><b>Private</b><span>индивидуальный ключ</span></div>
-          <div class="stat"><b>Happ</b><span>поддержка deep-link</span></div>
+        <div class="brand-text">
+          <h1>Islam VPN</h1>
+          <p>Инструкция подключения Happ</p>
         </div>
       </div>
 
-      <div class="panel phone" aria-hidden="true">
-        <div class="device">
-          <div class="screen">
-            <div class="notch"></div>
-            <div class="vpn-card">
-              <div style="display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px">
-                <b style="color:white;font-size:16px">Happ VPN</b><span class="pill">Protected</span>
-              </div>
-              <div class="ring"></div>
-              <div class="rows">
-                <div class="row"><span>Status</span><b style="color:var(--green)">Connected</b></div>
-                <div class="row"><span>Protocol</span><b>Secure</b></div>
-                <div class="row"><span>Profile</span><b>Personal</b></div>
-                <div class="row"><span>Latency</span><b>Low</b></div>
-              </div>
-            </div>
-          </div>
+      <a class="telegram-btn" href="https://t.me/islamvvpnbot" target="_blank" rel="noopener noreferrer">
+        <svg class="telegram-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21.5 4.5L18.5 18.6C18.27 19.6 17.66 19.85 16.81 19.37L12.25 16.01L10.05 18.13C9.81 18.37 9.6 18.58 9.14 18.58L9.47 13.93L17.93 6.29C18.29 5.97 17.85 5.79 17.37 6.1L6.91 12.7L2.41 11.29C1.43 10.98 1.41 10.31 2.61 9.84L20.2 3.06C21.01 2.76 21.73 3.25 21.5 4.5Z" fill="currentColor"/>
+        </svg>
+        Telegram
+      </a>
+    </div>
+
+    <div class="hero">
+      <h2>Подключение к Happ</h2>
+      <p>
+        Выберите устройство ниже и следуйте пошаговой инструкции для установки приложения
+        и добавления подписки.
+      </p>
+
+      <div class="platform-switch">
+        <button class="platform-btn active" id="androidTab" onclick="switchPlatform('android')">Android</button>
+        <button class="platform-btn" id="iosTab" onclick="switchPlatform('ios')">iPhone / iOS</button>
+      </div>
+    </div>
+
+    <!-- ANDROID -->
+    <div class="section" id="androidSection">
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Установка HAPP</h3>
+        </div>
+        <p>Выберите удобный способ установки приложения на Android:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.happproxy&pli=1" target="_blank" rel="noopener noreferrer">
+            Установите из Google Play
+          </a>
+
+          <a class="btn btn-secondary" href="https://r.stun.su/?to=https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank" rel="noopener noreferrer">
+            Скачать .APK файл напрямую
+          </a>
         </div>
       </div>
-    </section>
 
-    <section class="grid">
-      <div class="feature"><div class="icon">🛡️</div><h3>Защита соединения</h3><p>Подписка добавляется в приложение Happ без лишних действий и ручной настройки.</p></div>
-      <div class="feature"><div class="icon">✨</div><h3>Премиальный интерфейс</h3><p>Красивый glass-дизайн, мягкий glow, анимации и адаптация под смартфоны.</p></div>
-      <div class="feature"><div class="icon">🔗</div><h3>Одна ссылка</h3><p>Открывает сайт, а сайт уже даёт кнопку подключения и копирование Happ-ссылки.</p></div>
-    </section>
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Добавьте подписку</h3>
+        </div>
+        <p>Нажмите кнопку ниже, чтобы автоматически добавить подписку в Happ:</p>
 
-    <section class="panel steps">
-      <h2>Как подключиться</h2>
-      <div class="step-list">
-        <div class="step"><div class="num">1</div><div><b>Открой ссылку от бота</b><span>Ты попадёшь на эту страницу с уже встроенным индивидуальным ключом.</span></div></div>
-        <div class="step"><div class="num">2</div><div><b>Нажми «Подключиться в Happ»</b><span>Сайт передаст подписку в приложение Happ через специальную ссылку.</span></div></div>
-        <div class="step"><div class="num">3</div><div><b>Если Happ не открылся</b><span>Нажми «Скопировать Happ-ссылку» и вставь её в приложении вручную.</span></div></div>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json">
+            Добавить подписку
+          </a>
+          <button class="btn btn-secondary" onclick="copySubLink()">Скопировать ссылку</button>
+        </div>
+
+        <div class="copy-box" id="subLinkBox">
+          https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json
+        </div>
+        <div class="success" id="copySuccess">Ссылка скопирована.</div>
       </div>
-    </section>
-  </main>
 
-  <div class="toast" id="toast">Ссылка скопирована ✅</div>
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Подключитесь к серверу</h3>
+        </div>
+        <p>Откройте приложение и подключитесь к серверу.</p>
+        <p class="note">
+          Если подписка не добавилась, нажмите выше «Скопировать ссылку».
+          Затем в Happ нажмите на <b>Плюс</b> ➜ <b>Вставить из буфера</b>.
+        </p>
+      </div>
+    </div>
+
+    <!-- IOS -->
+    <div class="section hidden" id="iosSection">
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Установка HAPP</h3>
+        </div>
+        <p>Установите приложение из App Store в зависимости от вашего региона Apple ID:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank" rel="noopener noreferrer">
+            App Store (Регион Россия)
+          </a>
+
+          <a class="btn btn-secondary" href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" target="_blank" rel="noopener noreferrer">
+            App Store (Другой регион)
+          </a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Добавьте подписку</h3>
+        </div>
+        <p>Нажмите кнопку ниже, чтобы автоматически добавить подписку в Happ:</p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json">
+            Добавить подписку
+          </a>
+          <button class="btn btn-secondary" onclick="copySubLink()">Скопировать ссылку</button>
+        </div>
+
+        <div class="copy-box">
+          https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json
+        </div>
+        <div class="success" id="copySuccessIos">Ссылка скопирована.</div>
+      </div>
+
+      <div class="step">
+        <div class="step-head">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Подключитесь к серверу</h3>
+        </div>
+        <p>Откройте приложение и подключитесь к серверу.</p>
+        <p class="note">
+          Если подписка не добавилась, нажмите выше «Скопировать ссылку».
+          Затем в Happ нажмите на <b>Плюс</b> ➜ <b>Вставить из буфера</b>.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © Islam VPN
+    </div>
+  </div>
 
   <script>
-    const SUB_BASE = "https://vpn-sitess.vercel.app/api/sub/";
-    const DEFAULT_KEY = "TeEndjblkqRyCCQEsHX73g";
+    const subLink = "https://r.stun.su/?to=happ://add/https://precious-pithivier-f79a43.netlify.app/data.json";
 
-    const params = new URLSearchParams(window.location.search);
+    function switchPlatform(platform) {
+      const androidSection = document.getElementById("androidSection");
+      const iosSection = document.getElementById("iosSection");
+      const androidTab = document.getElementById("androidTab");
+      const iosTab = document.getElementById("iosTab");
 
-    function safeDecode(value) {
-      try { return decodeURIComponent(value); } catch { return value; }
-    }
-
-    function getHappLink() {
-      const to = params.get("to");
-      const sub = params.get("sub");
-      const key = params.get("key") || DEFAULT_KEY;
-
-      if (to) {
-        const decoded = safeDecode(to);
-        if (decoded.startsWith("happ://add/")) return decoded;
-        if (decoded.startsWith("https://") || decoded.startsWith("http://")) return `happ://add/${decoded}`;
+      if (platform === "android") {
+        androidSection.classList.remove("hidden");
+        iosSection.classList.add("hidden");
+        androidTab.classList.add("active");
+        iosTab.classList.remove("active");
+      } else {
+        iosSection.classList.remove("hidden");
+        androidSection.classList.add("hidden");
+        iosTab.classList.add("active");
+        androidTab.classList.remove("active");
       }
-
-      if (sub) {
-        const decodedSub = safeDecode(sub);
-        return decodedSub.startsWith("happ://add/") ? decodedSub : `happ://add/${decodedSub}`;
-      }
-
-      return `happ://add/${SUB_BASE}${key}`;
     }
 
-    const happLink = getHappLink();
-    const connectBtn = document.getElementById("connectBtn");
-    const copyBtn = document.getElementById("copyBtn");
-    const happLinkText = document.getElementById("happLinkText");
-    const toast = document.getElementById("toast");
+    function copySubLink() {
+      navigator.clipboard.writeText(subLink).then(() => {
+        const success1 = document.getElementById("copySuccess");
+        const success2 = document.getElementById("copySuccessIos");
 
-    happLinkText.textContent = happLink;
+        if (success1) {
+          success1.style.display = "block";
+          setTimeout(() => success1.style.display = "none", 2000);
+        }
 
-    function showToast(text) {
-      toast.textContent = text;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2300);
+        if (success2) {
+          success2.style.display = "block";
+          setTimeout(() => success2.style.display = "none", 2000);
+        }
+      }).catch(() => {
+        alert("Не удалось скопировать ссылку. Скопируйте её вручную из блока ниже.");
+      });
     }
-
-    connectBtn.addEventListener("click", () => {
-      window.location.href = happLink;
-    });
-
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(happLink);
-        showToast("Happ-ссылка скопирована ✅");
-      } catch (e) {
-        const textarea = document.createElement("textarea");
-        textarea.value = happLink;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        textarea.remove();
-        showToast("Happ-ссылка скопирована ✅");
-      }
-    });
-    <script>
-const key = window.location.pathname.split("/").pop();
-
-const sub = `https://vpn-sitess.vercel.app/api/sub/${key}`;
-const happ = `happ://add/${sub}`;
-const redirect = `https://r.stun.su/?to=${encodeURIComponent(happ)}`;
-
-// кнопка
-document.getElementById("connectBtn").onclick = () => {
-  window.location.href = redirect;
-};
-
-// авто-редирект (как премиум VPN)
-setTimeout(() => {
-  window.location.href = redirect;
-}, 1500);
-<button id="connectBtn">🚀 Подключиться к Happ</button>
- if (!text) {
-      alert("Скопируй ссылку из бота сначала!");
-      return;
-    }
-
-    // если уже happ ссылка — используем как есть
-    let happLink = text.startsWith("happ://")
-      ? text
-      : `happ://add/${text}`;
-
-    // редирект через stun (чтобы работало на iOS)
-    let redirect = `https://r.stun.su/?to=${encodeURIComponent(happLink)}`;
-
-    window.location.href = redirect;
-
-  } catch (e) {
-    alert("Браузер не дал доступ к буферу 😢\nПопробуй вставить вручную");
-  }
-};
-</script>
+  </script>
 </body>
 </html>
