@@ -425,6 +425,22 @@
         showToast("Happ-ссылка скопирована ✅");
       }
     });
-  </script>
+    <script>
+const key = window.location.pathname.split("/").pop();
+
+const sub = `https://vpn-sitess.vercel.app/api/sub/${key}`;
+const happ = `happ://add/${sub}`;
+const redirect = `https://r.stun.su/?to=${encodeURIComponent(happ)}`;
+
+// кнопка
+document.getElementById("connectBtn").onclick = () => {
+  window.location.href = redirect;
+};
+
+// авто-редирект (как премиум VPN)
+setTimeout(() => {
+  window.location.href = redirect;
+}, 1500);
+</script>
 </body>
 </html>
