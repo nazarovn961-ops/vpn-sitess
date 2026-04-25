@@ -55,4 +55,14 @@ export default async function handler(req, res) {
       message: String(e)
     });
   }
+},
+export default function handler(req, res) {
+  const { key } = req.query;
+
+  const happ = `happ://add/https://vpn-sitess.vercel.app/api/sub/${key}`;
+
+  const redirect = `https://r.stun.su/?to=${encodeURIComponent(happ)}`;
+
+  res.writeHead(302, { Location: redirect });
+  res.end();
 }
