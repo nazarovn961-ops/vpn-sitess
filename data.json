@@ -24348,29 +24348,11 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
         "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "1.0.0.1",
+        "8.8.8.8"
       ]
     },
     "inbounds": [
@@ -24383,71 +24365,63 @@
           "udp": true
         },
         "sniffing": {
+          "enabled": true,
           "destOverride": [
             "http",
             "tls",
             "quic"
           ],
-          "enabled": true,
-          "routeOnly": true
+          "routeOnly": false
         },
-        "tag": "socks-in"
+        "tag": "socks"
       },
       {
         "listen": "127.0.0.1",
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "auth": "noauth",
           "allowTransparent": false
         },
         "sniffing": {
+          "enabled": true,
           "destOverride": [
             "http",
             "tls",
             "quic"
           ],
-          "enabled": true,
-          "routeOnly": true
+          "routeOnly": false
         },
         "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
       }
     ],
     "log": {
       "loglevel": "warning"
     },
+    "observatory": {
+      "subjectSelector": [
+        "proxy-main",
+        "proxy-fallback-1",
+        "proxy-fallback-2",
+        "proxy-fallback-3"
+      ],
+      "probeUrl": "https://www.google.com/generate_204",
+      "probeInterval": "1m",
+      "enableConcurrency": true
+    },
     "outbounds": [
       {
+        "tag": "proxy-main",
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "198.105.115.118",
+              "address": "45.67.139.184",
               "port": 7443,
               "users": [
                 {
+                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
                   "level": 8
                 }
               ]
@@ -24456,6 +24430,7 @@
         },
         "streamSettings": {
           "network": "tcp",
+          "security": "reality",
           "realitySettings": {
             "fingerprint": "chrome",
             "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
@@ -24464,22 +24439,128 @@
             "show": false,
             "spiderX": ""
           },
-          "security": "reality",
           "tcpSettings": {
             "header": {
               "type": "none"
             }
           }
+        }
+      },
+      {
+        "tag": "proxy-fallback-1",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "185.22.235.222",
+              "port": 443,
+              "users": [
+                {
+                  "id": "6e889eae-2e43-4340-aa75-7e2ac85a5c8b",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
         },
-        "tag": "proxy"
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+            "serverName": "ads.x5.ru",
+            "shortId": "428ef87fd47a3a32",
+            "show": false,
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        }
       },
       {
-        "protocol": "freedom",
-        "tag": "direct"
+        "tag": "proxy-fallback-2",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "uk.jojackcraft.ru",
+              "port": 443,
+              "users": [
+                {
+                  "id": "6e889eae-2e43-4340-aa75-7e2ac85a5c8b",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+            "serverName": "moscow-post.su",
+            "shortId": "428ef87fd47a3a32",
+            "show": false,
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        }
       },
       {
-        "protocol": "blackhole",
-        "tag": "block"
+        "tag": "proxy-fallback-3",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "cz.titun.su",
+              "port": 443,
+              "users": [
+                {
+                  "id": "6e889eae-2e43-4340-aa75-7e2ac85a5c8b",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "1vSZjvhZO01oAEH3b7eebR1qF5dLU1Dq2E7xu8pwGSs",
+            "serverName": "npgr.su",
+            "shortId": "428ef87fd47a3a32",
+            "show": false,
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        }
+      },
+      {
+        "tag": "direct",
+        "protocol": "freedom"
+      },
+      {
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "policy": {
@@ -24491,65 +24572,96 @@
           "handshake": 3,
           "uplinkOnly": 2
         }
-      },
-      "system": {}
+      }
     },
     "remarks": "🇪🇸Испания",
     "routing": {
       "domainStrategy": "IPIfNonMatch",
+      "balancers": [
+        {
+          "tag": "auto",
+          "selector": [
+            "proxy-main",
+            "proxy-fallback-1",
+            "proxy-fallback-2",
+            "proxy-fallback-3"
+          ],
+          "fallbackTag": "proxy-fallback-1",
+          "strategy": {
+            "type": "leastLoad",
+            "settings": {
+              "expected": 1,
+              "maxRTT": "6s",
+              "baselines": [
+                "4s"
+              ]
+            }
+          }
+        }
+      ],
       "rules": [
         {
-          "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
+          "protocol": [
+            "bittorrent"
           ],
           "outboundTag": "block",
           "type": "field"
         },
         {
           "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
+            "domain:instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
-          "outboundTag": "direct",
+          "balancerTag": "auto",
           "type": "field"
         },
         {
           "ip": [
-            "geoip:ru",
-            "geoip:private"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
-          ],
-          "outboundTag": "proxy",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.0.0.1"
-          ],
-          "outboundTag": "direct",
-          "port": "53",
+          "balancerTag": "auto",
           "type": "field"
         },
         {
           "inboundTag": [
-            "socks-direct"
+            "socks",
+            "http"
           ],
-          "outboundTag": "direct",
+          "network": "tcp,udp",
+          "balancerTag": "auto",
           "type": "field"
         }
-      ],
-      "domainMatcher": "hybrid"
+      ]
     }
   },
   {
