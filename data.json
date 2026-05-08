@@ -1,5 +1,359 @@
 [
   {
+    "burstObservatory": {
+      "pingConfig": {
+        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
+        "destination": "https://www.google.com/generate_204",
+        "interval": "5m",
+        "sampling": 2,
+        "timeout": "5s"
+      },
+      "subjectSelector": [
+        "proxy-68",
+        "proxy-69",
+        "proxy-70",
+        "proxy-71",
+        "proxy-86"
+      ]
+    },
+    "dns": {
+      "disableCache": false,
+      "disableFallback": false,
+      "disableFallbackIfMatch": false,
+      "queryStrategy": "UseIPv4",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true,
+          "routeOnly": false
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true,
+          "routeOnly": false
+        },
+        "tag": "http"
+      }
+    ],
+    "log": {
+      "loglevel": "warning"
+    },
+    "meta": {
+      "serverDescription": "🇫🇲 Обход 🔥🔥🔥"
+    },
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.188.115.69",
+              "port": 8443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision",
+                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
+            "serverName": "ads.x5.ru",
+            "shortId": "7fd96d3113651c6a",
+            "show": false
+          },
+          "security": "reality",
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy-68"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.188.115.69",
+              "port": 2443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision",
+                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
+            "serverName": "api-maps.yandex.ru",
+            "shortId": "ad844ecf706b8302",
+            "show": false
+          },
+          "security": "reality",
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy-69"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.188.115.69",
+              "port": 3443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision",
+                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
+            "serverName": "max.ru",
+            "shortId": "3c38b3cce0ebb9dc",
+            "show": false
+          },
+          "security": "reality",
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy-70"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.188.115.69",
+              "port": 7443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision",
+                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
+            "serverName": "5post-gate.x5.ru",
+            "shortId": "3bb64ae215538b59",
+            "show": false
+          },
+          "security": "reality",
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy-71"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "158.160.137.6",
+              "port": 443,
+              "users": [
+                {
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision",
+                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "realitySettings": {
+            "fingerprint": "chrome",
+            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
+            "serverName": "cdp.x5.ru",
+            "shortId": "8ec792bfd725be8a",
+            "show": false
+          },
+          "security": "reality",
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy-86"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "policy": {
+      "system": {
+        "statsInboundDownlink": true,
+        "statsInboundUplink": true,
+        "statsOutboundDownlink": true,
+        "statsOutboundUplink": true
+      }
+    },
+    "remarks": "🇷🇺 БЕЛЫЙ СПИСОК 2 (x5)",
+    "routing": {
+      "balancers": [
+        {
+          "selector": [
+            "proxy-68",
+            "proxy-69",
+            "proxy-70",
+            "proxy-71",
+            "proxy-86"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          },
+          "tag": "proxy_balancer_priority"
+        }
+      ],
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "balancerTag": "proxy_balancer_priority",
+          "inboundTag": [
+            "http",
+            "socks"
+          ],
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "socks",
+            "socks-in",
+            "http"
+          ],
+          "network": "tcp,udp",
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        }
+      ]
+    }
+  },
+  {
     "dns": {
       "queryStrategy": "UseIPv4",
       "servers": [
@@ -166,6 +520,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -174,15 +576,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -352,6 +755,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -360,15 +811,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -538,6 +990,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -546,15 +1046,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -724,6 +1225,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -732,15 +1281,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -910,6 +1460,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -918,15 +1516,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -1096,6 +1695,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -1104,15 +1751,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -1282,6 +1930,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -1290,15 +1986,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -1468,6 +2165,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -1476,15 +2221,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -1654,6 +2400,54 @@
       "domainStrategy": "AsIs",
       "rules": [
         {
+          "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "inboundTag": [
             "socks-direct"
           ],
@@ -1662,15 +2456,16 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
         }
-      ]
+      ],
+      "domainMatcher": "hybrid"
     }
   },
   {
@@ -1827,220 +2622,52 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
-          ],
-          "outboundTag": "block",
-          "type": "field"
-        },
-        {
-          "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "geoip:ru",
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
           "outboundTag": "proxy",
-          "port": "53",
           "type": "field"
         },
         {
           "ip": [
-            "1.0.0.1"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-direct"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-in",
-            "socks",
-            "http"
-          ],
-          "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
-        }
-      ],
-      "domainMatcher": "hybrid"
-    }
-  },
-  {
-    "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
-      "queryStrategy": "UseIPv4",
-      "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
         },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-in"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "auth": "noauth",
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
-      }
-    ],
-    "log": {
-      "loglevel": "warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "93.123.39.68",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
-            "serverName": "chat.deepseek.com",
-            "shortId": "d82fb387",
-            "show": false,
-            "spiderX": ""
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "levels": {
-        "8": {
-          "bufferSize": 3,
-          "connIdle": 300,
-          "downlinkOnly": 4,
-          "handshake": 3,
-          "uplinkOnly": 2
-        }
-      },
-      "system": {}
-    },
-    "remarks": "🇪🇪Эстония",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
         {
           "domain": [
             "geosite:category-ads",
@@ -2093,8 +2720,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -2259,6 +2886,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -2309,8 +2984,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -2475,220 +3150,52 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
-          ],
-          "outboundTag": "block",
-          "type": "field"
-        },
-        {
-          "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "geoip:ru",
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
           "outboundTag": "proxy",
-          "port": "53",
           "type": "field"
         },
         {
           "ip": [
-            "1.0.0.1"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-direct"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-in",
-            "socks",
-            "http"
-          ],
-          "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
-        }
-      ],
-      "domainMatcher": "hybrid"
-    }
-  },
-  {
-    "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
-      "queryStrategy": "UseIPv4",
-      "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
         },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-in"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "auth": "noauth",
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "quic",
-            "tls"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
-      }
-    ],
-    "log": {
-      "loglevel": "warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "107.161.174.229",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
-            "serverName": "chat.deepseek.com",
-            "shortId": "d82fb387",
-            "show": false,
-            "spiderX": ""
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "levels": {
-        "8": {
-          "bufferSize": 3,
-          "connIdle": 300,
-          "downlinkOnly": 4,
-          "handshake": 3,
-          "uplinkOnly": 2
-        }
-      },
-      "system": {}
-    },
-    "remarks": "🇫🇮Финляндия",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
         {
           "domain": [
             "geosite:category-ads",
@@ -2741,8 +3248,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -2907,6 +3414,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -2957,8 +3512,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -3123,220 +3678,52 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
-          ],
-          "outboundTag": "block",
-          "type": "field"
-        },
-        {
-          "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "geoip:ru",
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
           "outboundTag": "proxy",
-          "port": "53",
           "type": "field"
         },
         {
           "ip": [
-            "1.0.0.1"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-direct"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-in",
-            "socks",
-            "http"
-          ],
-          "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
-        }
-      ],
-      "domainMatcher": "hybrid"
-    }
-  },
-  {
-    "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
-      "queryStrategy": "UseIPv4",
-      "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
         },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "http",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-in"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "auth": "noauth",
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "http",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "http",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
-      }
-    ],
-    "log": {
-      "loglevel": "warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "152.53.105.18",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
-            "serverName": "chat.deepseek.com",
-            "shortId": "be0ce047",
-            "show": false,
-            "spiderX": ""
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "levels": {
-        "8": {
-          "bufferSize": 3,
-          "connIdle": 300,
-          "downlinkOnly": 4,
-          "handshake": 3,
-          "uplinkOnly": 2
-        }
-      },
-      "system": {}
-    },
-    "remarks": "🇦🇹Австрия",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
         {
           "domain": [
             "geosite:category-ads",
@@ -3389,8 +3776,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -3555,6 +3942,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -3605,8 +4040,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -3771,220 +4206,52 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
-          ],
-          "outboundTag": "block",
-          "type": "field"
-        },
-        {
-          "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "geoip:ru",
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
           "outboundTag": "proxy",
-          "port": "53",
           "type": "field"
         },
         {
           "ip": [
-            "1.0.0.1"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-direct"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-in",
-            "socks",
-            "http"
-          ],
-          "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
-        }
-      ],
-      "domainMatcher": "hybrid"
-    }
-  },
-  {
-    "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
-      "queryStrategy": "UseIPv4",
-      "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
         },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "quic",
-            "http"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-in"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "auth": "noauth",
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "quic",
-            "http"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "tls",
-            "quic",
-            "http"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
-      }
-    ],
-    "log": {
-      "loglevel": "warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "107.181.134.191",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
-            "serverName": "chat.deepseek.com",
-            "shortId": "d82fb387",
-            "show": false,
-            "spiderX": ""
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "levels": {
-        "8": {
-          "bufferSize": 3,
-          "connIdle": 300,
-          "downlinkOnly": 4,
-          "handshake": 3,
-          "uplinkOnly": 2
-        }
-      },
-      "system": {}
-    },
-    "remarks": "🇬🇧Великобритания",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
         {
           "domain": [
             "geosite:category-ads",
@@ -4037,8 +4304,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -4203,6 +4470,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -4253,8 +4568,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -4419,220 +4734,52 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-ads",
-            "geosite:win-spy"
-          ],
-          "outboundTag": "block",
-          "type": "field"
-        },
-        {
-          "domain": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "geoip:ru",
-            "geoip:private"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "ip": [
-            "1.1.1.1"
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
           ],
           "outboundTag": "proxy",
-          "port": "53",
           "type": "field"
         },
         {
           "ip": [
-            "1.0.0.1"
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
-          "outboundTag": "direct",
-          "port": "53",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-direct"
-          ],
-          "outboundTag": "direct",
-          "type": "field"
-        },
-        {
-          "inboundTag": [
-            "socks-in",
-            "socks",
-            "http"
-          ],
-          "network": "tcp,udp",
           "outboundTag": "proxy",
           "type": "field"
-        }
-      ],
-      "domainMatcher": "hybrid"
-    }
-  },
-  {
-    "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
-      "queryStrategy": "UseIPv4",
-      "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
         },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-in"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "auth": "noauth",
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "http"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10820,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": true
-        },
-        "tag": "socks-direct"
-      }
-    ],
-    "log": {
-      "loglevel": "warning"
-    },
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "198.105.115.118",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "0bda1adc-ce2f-4617-9792-b5d6fa42acd8",
-                  "level": 8
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "5QAO98ot2U7TcGs_f6EEaQjCzNOJLNHqPf6smYsdFVI",
-            "serverName": "chat.deepseek.com",
-            "shortId": "d82fb387",
-            "show": false,
-            "spiderX": ""
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "policy": {
-      "levels": {
-        "8": {
-          "bufferSize": 3,
-          "connIdle": 300,
-          "downlinkOnly": 4,
-          "handshake": 3,
-          "uplinkOnly": 2
-        }
-      },
-      "system": {}
-    },
-    "remarks": "🇪🇸Испания",
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
         {
           "domain": [
             "geosite:category-ads",
@@ -4685,8 +4832,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -4851,6 +4998,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -4901,8 +5096,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
@@ -5067,6 +5262,54 @@
       "rules": [
         {
           "domain": [
+            "domain:instagram.com",
+            "domain:www.instagram.com",
+            "domain:i.instagram.com",
+            "domain:cdninstagram.com",
+            "domain:facebook.com",
+            "domain:fbcdn.net",
+            "domain:messenger.com",
+            "domain:whatsapp.com",
+            "domain:whatsapp.net",
+            "domain:tiktok.com",
+            "domain:www.tiktok.com",
+            "domain:vm.tiktok.com",
+            "domain:tiktokcdn.com",
+            "domain:tiktokv.com",
+            "domain:byteoversea.com",
+            "domain:ibytedtos.com",
+            "domain:youtube.com",
+            "domain:www.youtube.com",
+            "domain:m.youtube.com",
+            "domain:youtu.be",
+            "domain:googlevideo.com",
+            "domain:ytimg.com",
+            "domain:ggpht.com",
+            "domain:t.me",
+            "domain:telegram.org",
+            "domain:telegram.me",
+            "domain:telegram-cdn.org",
+            "domain:tdesktop.com",
+            "geosite:instagram",
+            "geosite:facebook",
+            "geosite:youtube",
+            "geosite:telegram",
+            "geosite:tiktok"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
             "geosite:category-ads",
             "geosite:win-spy"
           ],
@@ -5117,8 +5360,8 @@
         },
         {
           "inboundTag": [
-            "socks-in",
             "socks",
+            "socks-in",
             "http"
           ],
           "network": "tcp,udp",
