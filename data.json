@@ -286,6 +286,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -640,6 +663,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -986,6 +1032,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -1330,6 +1399,29 @@
       "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -2498,6 +2590,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -2842,6 +2957,29 @@
       "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -4010,6 +4148,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -4356,6 +4517,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -4700,6 +4884,29 @@
       "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -5868,6 +6075,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -6079,6 +6309,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -6345,6 +6598,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -6607,6 +6883,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -6873,6 +7172,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -7135,6 +7457,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -7401,6 +7746,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -7663,6 +8031,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -7929,6 +8320,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -8191,6 +8605,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
@@ -8457,6 +8894,29 @@
       "rules": [
         {
           "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "domain": [
             "domain:instagram.com",
             "domain:www.instagram.com",
             "domain:i.instagram.com",
@@ -8719,6 +9179,29 @@
     "routing": {
       "domainStrategy": "IPIfNonMatch",
       "rules": [
+        {
+          "domain": [
+            "domain:vk.com",
+            "domain:www.vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:oauth.vk.com",
+            "domain:id.vk.com",
+            "domain:login.vk.com",
+            "domain:vk.ru",
+            "domain:www.vk.ru",
+            "domain:m.vk.ru",
+            "domain:vkontakte.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mycdn.me",
+            "domain:mail.ru",
+            "geosite:vk"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
         {
           "domain": [
             "domain:instagram.com",
