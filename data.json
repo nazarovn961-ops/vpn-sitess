@@ -286,8 +286,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -356,8 +354,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -718,8 +715,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -788,8 +783,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -1142,8 +1136,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -1212,8 +1204,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -1566,8 +1557,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -1636,8 +1625,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -2810,8 +2798,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -2880,8 +2866,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -3234,8 +3219,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -3304,8 +3287,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -4478,8 +4460,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -4548,8 +4528,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -4902,8 +4881,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -4972,8 +4949,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -5326,8 +5302,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -5396,8 +5370,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -6570,8 +6543,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -6640,8 +6611,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "balancerTag": "proxy_balancer_priority"
@@ -6861,8 +6831,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -6931,8 +6899,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -7203,8 +7170,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -7273,8 +7238,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -7545,8 +7509,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -7615,8 +7577,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -7887,8 +7848,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -7957,8 +7916,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -8229,8 +8187,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -8299,8 +8255,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -8571,8 +8526,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -8641,8 +8594,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -8913,8 +8865,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -8983,8 +8933,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -9255,8 +9204,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -9325,8 +9272,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -9597,8 +9543,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -9667,8 +9611,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -9939,8 +9882,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -10009,8 +9950,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
@@ -10281,8 +10221,6 @@
       "rules": [
         {
           "domain": [
-            "geosite:category-porn",
-            "geosite:category-gambling",
             "domain:xvideos.com",
             "domain:xnxx.com",
             "domain:pornhub.com",
@@ -10351,8 +10289,7 @@
             "domain:mycdn.me",
             "domain:okcdn.ru",
             "domain:mail.ru",
-            "domain:imgsmail.ru",
-            "geosite:vk"
+            "domain:imgsmail.ru"
           ],
           "type": "field",
           "outboundTag": "proxy"
