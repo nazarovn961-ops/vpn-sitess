@@ -1,30 +1,14 @@
 [
   {
-    "burstObservatory": {
-      "pingConfig": {
-        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-        "destination": "https://www.google.com/generate_204",
-        "interval": "5m",
-        "sampling": 2,
-        "timeout": "5s"
-      },
-      "subjectSelector": [
-        "proxy-68",
-        "proxy-69",
-        "proxy-70",
-        "proxy-71",
-        "proxy-86"
-      ]
-    },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "IPIfNonMatch",
       "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
+        {
+          "address": "1.1.1.1",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
@@ -33,16 +17,16 @@
         "protocol": "socks",
         "settings": {
           "auth": "noauth",
-          "udp": true
+          "udp": true,
+          "userLevel": 8
         },
         "sniffing": {
           "destOverride": [
             "http",
             "tls",
-            "quic"
+            "fakedns"
           ],
-          "enabled": true,
-          "routeOnly": false
+          "enabled": true
         },
         "tag": "socks"
       },
@@ -51,16 +35,7 @@
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": false
+          "userLevel": 8
         },
         "tag": "http"
       }
@@ -68,92 +43,19 @@
     "log": {
       "loglevel": "warning"
     },
-    "meta": {
-      "serverDescription": "🇫🇲 Обход 🔥🔥🔥"
-    },
     "outbounds": [
       {
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "5.188.115.69",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-68"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 2443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-69"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
+              "address": "37.9.4.38",
               "port": 3443,
               "users": [
                 {
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                  "id": "e3178f8e-50ab-4520-aa2d-7c3338a50d3f"
                 }
               ]
             }
@@ -163,89 +65,15 @@
           "network": "tcp",
           "realitySettings": {
             "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
+            "publicKey": "b6pWDXasvkInC-zJbBUzJmPEPZeFXZp6yFs4yS5EY2M",
             "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
+            "shortId": "fb13b0dd6c93b22c",
+            "spiderX": "/"
           },
           "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
+          "tcpSettings": {}
         },
-        "tag": "proxy-70"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-71"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.137.6",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-86"
+        "tag": "proxy"
       },
       {
         "protocol": "freedom",
@@ -258,30 +86,12 @@
     ],
     "policy": {
       "system": {
-        "statsInboundDownlink": true,
-        "statsInboundUplink": true,
         "statsOutboundDownlink": true,
         "statsOutboundUplink": true
       }
     },
     "remarks": "🇫🇲 Обход 🔥🔥🔥",
     "routing": {
-      "balancers": [
-        {
-          "selector": [
-            "proxy-68",
-            "proxy-69",
-            "proxy-70",
-            "proxy-71",
-            "proxy-86"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy_balancer_priority"
-        }
-      ],
-      "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
@@ -356,8 +166,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -388,14 +198,9 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -404,56 +209,94 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
-          "balancerTag": "proxy_balancer_priority",
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "habr.com",
+            "4pda.to",
+            "4pda.ru",
+            "kemono.su",
+            "jut.su",
+            "kara.su",
+            "theins.ru",
+            "tvrain.ru",
+            "echo.msk.ru",
+            "the-village.ru",
+            "snob.ru",
+            "novayagazeta.ru",
+            "moscowtimes.ru"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "domain": [
+            "geosite:private",
+            "geosite:apple",
+            "geosite:apple-pki",
+            "geosite:huawei",
+            "geosite:xiaomi",
+            "geosite:category-android-app-download",
+            "geosite:f-droid",
+            "geosite:twitch",
+            "geosite:category-ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "ip": [
+            "geoip:ru",
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
           "inboundTag": [
             "http",
-            "socks"
+            "socks",
+            "socks-in"
           ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
           "inboundTag": [
+            "http",
             "socks",
-            "socks-in",
-            "http"
+            "socks-in"
           ],
           "network": "tcp,udp",
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         }
       ]
+    },
+    "stats": {},
+    "meta": {
+      "serverDescription": "🇫🇲 Обход 🔥🔥🔥"
     }
   },
   {
-    "burstObservatory": {
-      "pingConfig": {
-        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-        "destination": "https://www.google.com/generate_204",
-        "interval": "1m",
-        "sampling": 2,
-        "timeout": "3s"
-      },
-      "subjectSelector": [
-        "proxy-68",
-        "proxy-69",
-        "proxy-70",
-        "proxy-71",
-        "proxy-86"
-      ]
-    },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "IPIfNonMatch",
       "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
+        {
+          "address": "1.1.1.1",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
@@ -462,16 +305,16 @@
         "protocol": "socks",
         "settings": {
           "auth": "noauth",
-          "udp": true
+          "udp": true,
+          "userLevel": 8
         },
         "sniffing": {
           "destOverride": [
             "http",
             "tls",
-            "quic"
+            "fakedns"
           ],
-          "enabled": true,
-          "routeOnly": false
+          "enabled": true
         },
         "tag": "socks"
       },
@@ -480,16 +323,7 @@
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": false
+          "userLevel": 8
         },
         "tag": "http"
       }
@@ -497,92 +331,19 @@
     "log": {
       "loglevel": "warning"
     },
-    "meta": {
-      "serverDescription": "🇫🇲 Обход #1 🔥"
-    },
     "outbounds": [
       {
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "5.188.115.69",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-68"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 2443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-69"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
+              "address": "37.9.4.38",
               "port": 3443,
               "users": [
                 {
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                  "id": "cebe29b8-9771-4bdd-99ea-479746197354"
                 }
               ]
             }
@@ -592,89 +353,15 @@
           "network": "tcp",
           "realitySettings": {
             "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
+            "publicKey": "b6pWDXasvkInC-zJbBUzJmPEPZeFXZp6yFs4yS5EY2M",
             "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
+            "shortId": "5b38374c6073db15",
+            "spiderX": "/"
           },
           "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
+          "tcpSettings": {}
         },
-        "tag": "proxy-70"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-71"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.137.6",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-86"
+        "tag": "proxy"
       },
       {
         "protocol": "freedom",
@@ -687,30 +374,12 @@
     ],
     "policy": {
       "system": {
-        "statsInboundDownlink": true,
-        "statsInboundUplink": true,
         "statsOutboundDownlink": true,
         "statsOutboundUplink": true
       }
     },
-    "remarks": "🇫🇲 Обход #1 🔥",
+    "remarks": "🇫🇲 Обход #1🔥",
     "routing": {
-      "balancers": [
-        {
-          "selector": [
-            "proxy-68",
-            "proxy-69",
-            "proxy-70",
-            "proxy-71",
-            "proxy-86"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy_balancer_priority"
-        }
-      ],
-      "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
@@ -785,8 +454,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -817,14 +486,9 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -833,7 +497,65 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "habr.com",
+            "4pda.to",
+            "4pda.ru",
+            "kemono.su",
+            "jut.su",
+            "kara.su",
+            "theins.ru",
+            "tvrain.ru",
+            "echo.msk.ru",
+            "the-village.ru",
+            "snob.ru",
+            "novayagazeta.ru",
+            "moscowtimes.ru"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "domain": [
+            "geosite:private",
+            "geosite:apple",
+            "geosite:apple-pki",
+            "geosite:huawei",
+            "geosite:xiaomi",
+            "geosite:category-android-app-download",
+            "geosite:f-droid",
+            "geosite:twitch",
+            "geosite:category-ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "ip": [
+            "geoip:ru",
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -843,38 +565,26 @@
             "socks-in"
           ],
           "network": "tcp,udp",
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         }
       ]
+    },
+    "stats": {},
+    "meta": {
+      "serverDescription": "🇫🇲 Обход #1🔥"
     }
   },
   {
-    "burstObservatory": {
-      "pingConfig": {
-        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-        "destination": "https://www.google.com/generate_204",
-        "interval": "1m",
-        "sampling": 2,
-        "timeout": "3s"
-      },
-      "subjectSelector": [
-        "proxy-68",
-        "proxy-69",
-        "proxy-70",
-        "proxy-71",
-        "proxy-86"
-      ]
-    },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "IPIfNonMatch",
       "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
+        {
+          "address": "1.1.1.1",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
@@ -883,16 +593,16 @@
         "protocol": "socks",
         "settings": {
           "auth": "noauth",
-          "udp": true
+          "udp": true,
+          "userLevel": 8
         },
         "sniffing": {
           "destOverride": [
             "http",
             "tls",
-            "quic"
+            "fakedns"
           ],
-          "enabled": true,
-          "routeOnly": false
+          "enabled": true
         },
         "tag": "socks"
       },
@@ -901,16 +611,7 @@
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": false
+          "userLevel": 8
         },
         "tag": "http"
       }
@@ -918,57 +619,19 @@
     "log": {
       "loglevel": "warning"
     },
-    "meta": {
-      "serverDescription": "🇫🇲 Обход #2 🔥"
-    },
     "outbounds": [
       {
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "5.188.115.69",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "3a8fb755-2010-477e-a663-11d49ff59209"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-68"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
+              "address": "37.9.4.38",
               "port": 2443,
               "users": [
                 {
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "3a8fb755-2010-477e-a663-11d49ff59209"
+                  "id": "e3178f8e-50ab-4520-aa2d-7c3338a50d3f"
                 }
               ]
             }
@@ -978,124 +641,15 @@
           "network": "tcp",
           "realitySettings": {
             "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
+            "publicKey": "8Wc0VyNeM0-GeIRuwHOk83eAq3AnvBRiVw_CvqwICCA",
+            "serverName": "ads.x5.ru",
+            "shortId": "9fc5b5f2a53deccb",
+            "spiderX": "/"
           },
           "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
+          "tcpSettings": {}
         },
-        "tag": "proxy-69"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 3443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "3a8fb755-2010-477e-a663-11d49ff59209"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
-            "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-70"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "3a8fb755-2010-477e-a663-11d49ff59209"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-71"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.137.6",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "3a8fb755-2010-477e-a663-11d49ff59209"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-86"
+        "tag": "proxy"
       },
       {
         "protocol": "freedom",
@@ -1108,30 +662,12 @@
     ],
     "policy": {
       "system": {
-        "statsInboundDownlink": true,
-        "statsInboundUplink": true,
         "statsOutboundDownlink": true,
         "statsOutboundUplink": true
       }
     },
-    "remarks": "🇫🇲 Обход #2 🔥",
+    "remarks": "🇫🇲 Обход #2🔥",
     "routing": {
-      "balancers": [
-        {
-          "selector": [
-            "proxy-68",
-            "proxy-69",
-            "proxy-70",
-            "proxy-71",
-            "proxy-86"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy_balancer_priority"
-        }
-      ],
-      "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
@@ -1206,8 +742,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -1238,14 +774,9 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -1254,7 +785,65 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "habr.com",
+            "4pda.to",
+            "4pda.ru",
+            "kemono.su",
+            "jut.su",
+            "kara.su",
+            "theins.ru",
+            "tvrain.ru",
+            "echo.msk.ru",
+            "the-village.ru",
+            "snob.ru",
+            "novayagazeta.ru",
+            "moscowtimes.ru"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "domain": [
+            "geosite:private",
+            "geosite:apple",
+            "geosite:apple-pki",
+            "geosite:huawei",
+            "geosite:xiaomi",
+            "geosite:category-android-app-download",
+            "geosite:f-droid",
+            "geosite:twitch",
+            "geosite:category-ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "ip": [
+            "geoip:ru",
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -1264,38 +853,26 @@
             "socks-in"
           ],
           "network": "tcp,udp",
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         }
       ]
+    },
+    "stats": {},
+    "meta": {
+      "serverDescription": "🇫🇲 Обход #2🔥"
     }
   },
   {
-    "burstObservatory": {
-      "pingConfig": {
-        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-        "destination": "https://www.google.com/generate_204",
-        "interval": "1m",
-        "sampling": 2,
-        "timeout": "3s"
-      },
-      "subjectSelector": [
-        "proxy-68",
-        "proxy-69",
-        "proxy-70",
-        "proxy-71",
-        "proxy-86"
-      ]
-    },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "IPIfNonMatch",
       "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
+        {
+          "address": "1.1.1.1",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
@@ -1304,16 +881,16 @@
         "protocol": "socks",
         "settings": {
           "auth": "noauth",
-          "udp": true
+          "udp": true,
+          "userLevel": 8
         },
         "sniffing": {
           "destOverride": [
             "http",
             "tls",
-            "quic"
+            "fakedns"
           ],
-          "enabled": true,
-          "routeOnly": false
+          "enabled": true
         },
         "tag": "socks"
       },
@@ -1322,16 +899,7 @@
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": false
+          "userLevel": 8
         },
         "tag": "http"
       }
@@ -1339,57 +907,19 @@
     "log": {
       "loglevel": "warning"
     },
-    "meta": {
-      "serverDescription": "🇫🇲 Обход #3 🔥"
-    },
     "outbounds": [
       {
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "5.188.115.69",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "dd74d7f1-c2e8-443c-88f9-721a12363b7e"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-68"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
+              "address": "37.9.4.38",
               "port": 2443,
               "users": [
                 {
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "dd74d7f1-c2e8-443c-88f9-721a12363b7e"
+                  "id": "cebe29b8-9771-4bdd-99ea-479746197354"
                 }
               ]
             }
@@ -1399,124 +929,15 @@
           "network": "tcp",
           "realitySettings": {
             "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
+            "publicKey": "8Wc0VyNeM0-GeIRuwHOk83eAq3AnvBRiVw_CvqwICCA",
+            "serverName": "ads.x5.ru",
+            "shortId": "91adf1fbe5172c61",
+            "spiderX": "/"
           },
           "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
+          "tcpSettings": {}
         },
-        "tag": "proxy-69"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 3443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "dd74d7f1-c2e8-443c-88f9-721a12363b7e"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
-            "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-70"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "dd74d7f1-c2e8-443c-88f9-721a12363b7e"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-71"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.137.6",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "dd74d7f1-c2e8-443c-88f9-721a12363b7e"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-86"
+        "tag": "proxy"
       },
       {
         "protocol": "freedom",
@@ -1529,30 +950,12 @@
     ],
     "policy": {
       "system": {
-        "statsInboundDownlink": true,
-        "statsInboundUplink": true,
         "statsOutboundDownlink": true,
         "statsOutboundUplink": true
       }
     },
-    "remarks": "🇫🇲 Обход #3 🔥",
+    "remarks": "🇫🇲 Обход #3🔥",
     "routing": {
-      "balancers": [
-        {
-          "selector": [
-            "proxy-68",
-            "proxy-69",
-            "proxy-70",
-            "proxy-71",
-            "proxy-86"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy_balancer_priority"
-        }
-      ],
-      "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
@@ -1627,8 +1030,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -1659,14 +1062,9 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -1675,7 +1073,65 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "habr.com",
+            "4pda.to",
+            "4pda.ru",
+            "kemono.su",
+            "jut.su",
+            "kara.su",
+            "theins.ru",
+            "tvrain.ru",
+            "echo.msk.ru",
+            "the-village.ru",
+            "snob.ru",
+            "novayagazeta.ru",
+            "moscowtimes.ru"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "domain": [
+            "geosite:private",
+            "geosite:apple",
+            "geosite:apple-pki",
+            "geosite:huawei",
+            "geosite:xiaomi",
+            "geosite:category-android-app-download",
+            "geosite:f-droid",
+            "geosite:twitch",
+            "geosite:category-ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "ip": [
+            "geoip:ru",
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -1685,60 +1141,26 @@
             "socks-in"
           ],
           "network": "tcp,udp",
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         }
       ]
+    },
+    "stats": {},
+    "meta": {
+      "serverDescription": "🇫🇲 Обход #3🔥"
     }
   },
   {
-    "burstObservatory": {
-      "pingConfig": {
-        "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-        "destination": "https://www.google.com/generate_204",
-        "interval": "1m",
-        "sampling": 2,
-        "timeout": "3s"
-      },
-      "subjectSelector": [
-        "proxy-1",
-        "proxy-2",
-        "proxy-3",
-        "proxy-4",
-        "proxy-16",
-        "proxy-17",
-        "proxy-18",
-        "proxy-19",
-        "proxy-20",
-        "proxy-47",
-        "proxy-48",
-        "proxy-49",
-        "proxy-50",
-        "proxy-58",
-        "proxy-59",
-        "proxy-60",
-        "proxy-65",
-        "proxy-66",
-        "proxy-68",
-        "proxy-69",
-        "proxy-70",
-        "proxy-71",
-        "proxy-72",
-        "proxy-73",
-        "proxy-74",
-        "proxy-75",
-        "proxy-86"
-      ]
-    },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "queryStrategy": "UseIPv4",
+      "queryStrategy": "IPIfNonMatch",
       "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
+        {
+          "address": "1.1.1.1",
+          "skipFallback": false
+        }
+      ],
+      "tag": "dns_out"
     },
     "inbounds": [
       {
@@ -1747,16 +1169,16 @@
         "protocol": "socks",
         "settings": {
           "auth": "noauth",
-          "udp": true
+          "udp": true,
+          "userLevel": 8
         },
         "sniffing": {
           "destOverride": [
             "http",
             "tls",
-            "quic"
+            "fakedns"
           ],
-          "enabled": true,
-          "routeOnly": false
+          "enabled": true
         },
         "tag": "socks"
       },
@@ -1765,16 +1187,7 @@
         "port": 10809,
         "protocol": "http",
         "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true,
-          "routeOnly": false
+          "userLevel": 8
         },
         "tag": "http"
       }
@@ -1782,22 +1195,19 @@
     "log": {
       "loglevel": "warning"
     },
-    "meta": {
-      "serverDescription": "🇫🇲 Обход #4 🔥"
-    },
     "outbounds": [
       {
         "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "51.250.30.151",
-              "port": 443,
+              "address": "37.9.4.38",
+              "port": 1443,
               "users": [
                 {
                   "encryption": "none",
                   "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
+                  "id": "e3178f8e-50ab-4520-aa2d-7c3338a50d3f"
                 }
               ]
             }
@@ -1807,934 +1217,15 @@
           "network": "tcp",
           "realitySettings": {
             "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
+            "publicKey": "urZnaDH9h6SVkMdrAxoY4FHgQ4pUcK77bn4jwka1y3c",
+            "serverName": "vk.ru",
+            "shortId": "a6850ceca467db5f",
+            "spiderX": "/"
           },
           "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
+          "tcpSettings": {}
         },
-        "tag": "proxy-1"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.20.59",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-2"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.18.3",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-3"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.21.20",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-4"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.86.144.9",
-              "port": 2087,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-16"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.100.29",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-17"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.29.203",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-18"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.53.211",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-19"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.53.211",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "grpcSettings": {
-            "authority": "yandex.ru",
-            "mode": false,
-            "serviceName": "pussys"
-          },
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "allowInsecure": false,
-            "serverName": "",
-            "show": false
-          }
-        },
-        "tag": "proxy-20"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.109.151",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-47"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.26.184",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-48"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.86.68",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-49"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.28.47",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-50"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.14.77",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-58"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "84.201.161.8",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-59"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "51.250.21.236",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-60"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.44.207",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-65"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.44.99",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-66"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-68"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 2443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-69"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 3443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
-            "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-70"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "5.188.115.69",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-71"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.52.36",
-              "port": 8443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "W6jPY5DwuDCO0jnOihOx8n0SbnfxdpT4Lt1NTlmBiUI",
-            "serverName": "ads.x5.ru",
-            "shortId": "7fd96d3113651c6a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-72"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.52.36",
-              "port": 2443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YnT2UJbXooiJNwq0YAILlBNubfEIT4hz560q5r3nHSg",
-            "serverName": "api-maps.yandex.ru",
-            "shortId": "ad844ecf706b8302",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-73"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.52.36",
-              "port": 3443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "8f1NWVS4DCZJNvIC28ioeponslhiGqoFnaVVi1cjFk8",
-            "serverName": "max.ru",
-            "shortId": "3c38b3cce0ebb9dc",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-74"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.91.52.36",
-              "port": 7443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "YlcCHLR4xkxbiCoy653NHSAZzt-JPRyfUwVyLYsnK2A",
-            "serverName": "5post-gate.x5.ru",
-            "shortId": "3bb64ae215538b59",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-75"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "158.160.137.6",
-              "port": 443,
-              "users": [
-                {
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision",
-                  "id": "da95c13f-11d3-412b-b8a4-5f7a51996f9f"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "realitySettings": {
-            "fingerprint": "chrome",
-            "publicKey": "wgXD4k3A16WR0aL63N9Mx8xoqFigJLyQWJXi-l3MPXI",
-            "serverName": "cdp.x5.ru",
-            "shortId": "8ec792bfd725be8a",
-            "show": false
-          },
-          "security": "reality",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy-86"
-      },
-      {
-        "protocol": "loopback",
-        "settings": {
-          "inboundTag": "balancer-loop-1-in"
-        },
-        "tag": "balancer-loop-1-out"
+        "tag": "proxy"
       },
       {
         "protocol": "freedom",
@@ -2747,53 +1238,12 @@
     ],
     "policy": {
       "system": {
-        "statsInboundDownlink": true,
-        "statsInboundUplink": true,
         "statsOutboundDownlink": true,
         "statsOutboundUplink": true
       }
     },
-    "remarks": "🇫🇲 Обход #4 🔥",
+    "remarks": "🇫🇲 Обход #4🔥",
     "routing": {
-      "balancers": [
-        {
-          "fallbackTag": "balancer-loop-1-out",
-          "selector": [
-            "proxy-1",
-            "proxy-2",
-            "proxy-3",
-            "proxy-4",
-            "proxy-16",
-            "proxy-17",
-            "proxy-18",
-            "proxy-19",
-            "proxy-20",
-            "proxy-47",
-            "proxy-48",
-            "proxy-49",
-            "proxy-50",
-            "proxy-58",
-            "proxy-59",
-            "proxy-60",
-            "proxy-65",
-            "proxy-66",
-            "proxy-68",
-            "proxy-69",
-            "proxy-70",
-            "proxy-71",
-            "proxy-72",
-            "proxy-73",
-            "proxy-74",
-            "proxy-75",
-            "proxy-86"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          },
-          "tag": "proxy_balancer_priority"
-        }
-      ],
-      "domainMatcher": "hybrid",
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
@@ -2868,8 +1318,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -2900,14 +1350,9 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -2916,7 +1361,65 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "domain": [
+            "habr.com",
+            "4pda.to",
+            "4pda.ru",
+            "kemono.su",
+            "jut.su",
+            "kara.su",
+            "theins.ru",
+            "tvrain.ru",
+            "echo.msk.ru",
+            "the-village.ru",
+            "snob.ru",
+            "novayagazeta.ru",
+            "moscowtimes.ru"
+          ],
+          "outboundTag": "proxy"
+        },
+        {
+          "domain": [
+            "geosite:private",
+            "geosite:apple",
+            "geosite:apple-pki",
+            "geosite:huawei",
+            "geosite:xiaomi",
+            "geosite:category-android-app-download",
+            "geosite:f-droid",
+            "geosite:twitch",
+            "geosite:category-ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "ip": [
+            "geoip:ru",
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
           "type": "field"
         },
         {
@@ -2926,10 +1429,14 @@
             "socks-in"
           ],
           "network": "tcp,udp",
-          "balancerTag": "proxy_balancer_priority",
+          "outboundTag": "proxy",
           "type": "field"
         }
       ]
+    },
+    "stats": {},
+    "meta": {
+      "serverDescription": "🇫🇲 Обход #4🔥"
     }
   },
   {
@@ -3289,8 +1796,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
         },
         {
           "domain": [
@@ -3321,12 +1828,7 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
@@ -3337,6 +1839,25 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
         },
@@ -4530,8 +3051,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
         },
         {
           "domain": [
@@ -4562,12 +3083,7 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
@@ -4578,6 +3094,25 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
         },
@@ -4951,8 +3486,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
         },
         {
           "domain": [
@@ -4983,12 +3518,7 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
@@ -4999,6 +3529,25 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
         },
@@ -5372,8 +3921,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
         },
         {
           "domain": [
@@ -5404,12 +3953,7 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
@@ -5420,6 +3964,25 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
         },
@@ -6613,8 +5176,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "balancerTag": "proxy_balancer_priority"
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
         },
         {
           "domain": [
@@ -6645,12 +5208,7 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
           ],
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
@@ -6661,6 +5219,25 @@
             "geoip:telegram",
             "geoip:twitter"
           ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
+          ],
+          "balancerTag": "proxy_balancer_priority",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
+          ],
+          "network": "tcp,udp",
           "balancerTag": "proxy_balancer_priority",
           "type": "field"
         },
@@ -6901,8 +5478,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -6933,12 +5510,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -7007,6 +5588,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -7240,8 +5831,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -7272,12 +5863,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -7346,6 +5941,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -7579,8 +6184,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -7611,12 +6216,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -7685,6 +6294,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -7918,8 +6537,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -7950,12 +6569,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -8024,6 +6647,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -8257,8 +6890,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -8289,12 +6922,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -8363,6 +7000,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -8596,8 +7243,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -8628,12 +7275,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -8702,6 +7353,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -8935,8 +7596,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -8967,12 +7628,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -9041,6 +7706,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -9274,8 +7949,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -9306,12 +7981,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -9380,6 +8059,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -9613,8 +8302,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -9645,12 +8334,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -9719,6 +8412,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -9952,8 +8655,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -9984,12 +8687,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -10058,6 +8765,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
@@ -10291,8 +9008,8 @@
             "domain:mail.ru",
             "domain:imgsmail.ru"
           ],
-          "type": "field",
-          "outboundTag": "proxy"
+          "outboundTag": "proxy",
+          "type": "field"
         },
         {
           "domain": [
@@ -10323,12 +9040,16 @@
             "domain:telegram.org",
             "domain:telegram.me",
             "domain:telegram-cdn.org",
-            "domain:tdesktop.com",
-            "geosite:instagram",
-            "geosite:facebook",
-            "geosite:youtube",
-            "geosite:telegram",
-            "geosite:tiktok"
+            "domain:tdesktop.com"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "ip": [
+            "geoip:facebook",
+            "geoip:telegram",
+            "geoip:twitter"
           ],
           "outboundTag": "proxy",
           "type": "field"
@@ -10397,6 +9118,16 @@
             "socks",
             "socks-in",
             "http"
+          ],
+          "network": "tcp,udp",
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
+          "inboundTag": [
+            "http",
+            "socks",
+            "socks-in"
           ],
           "network": "tcp,udp",
           "outboundTag": "proxy",
