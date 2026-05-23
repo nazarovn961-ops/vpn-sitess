@@ -15,10 +15,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "664BDDF7-B991-43E2-AA2C-A32ECB7D4B95",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -389,10 +385,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "8867650F-B57C-4CA2-B8AB-259B79F346C9",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -768,10 +760,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "B1F5BDAB-3609-4F98-80B1-FAB68B52FB6A",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -1327,10 +1315,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "91CCB5BE-116B-4525-B08A-03802328C37B",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -1881,10 +1865,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "664BDDF7-B991-43E2-AA2C-A32ECB7D4B95",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -2255,10 +2235,6 @@
       ]
     },
     "dns": {
-      "disableCache": false,
-      "disableFallback": false,
-      "disableFallbackIfMatch": false,
-      "id": "8867650F-B57C-4CA2-B8AB-259B79F346C9",
       "queryStrategy": "UseIPv4",
       "servers": [
         "https://1.1.1.1/dns-query",
@@ -2615,10 +2591,10 @@
   },
   {
     "dns": {
-      "queryStrategy": "UseIP",
+      "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        "1.0.0.1"
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -2712,6 +2688,20 @@
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
+          "domain": [
+            "domain:vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:vk.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mail.ru"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "outboundTag": "direct",
           "protocol": [
             "bittorrent"
@@ -2723,29 +2713,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -3076,29 +3047,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -3429,29 +3381,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -3782,29 +3715,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -4135,29 +4049,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -4488,10 +4383,10 @@
   },
   {
     "dns": {
-      "queryStrategy": "UseIP",
+      "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        "1.0.0.1"
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
@@ -4585,6 +4480,20 @@
       "domainStrategy": "IPIfNonMatch",
       "rules": [
         {
+          "domain": [
+            "domain:vk.com",
+            "domain:m.vk.com",
+            "domain:api.vk.com",
+            "domain:vk.ru",
+            "domain:userapi.com",
+            "domain:vk-cdn.net",
+            "domain:vkvideo.ru",
+            "domain:mail.ru"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+        },
+        {
           "outboundTag": "direct",
           "protocol": [
             "bittorrent"
@@ -4596,29 +4505,10 @@
   },
   {
     "dns": {
-      "hosts": {
-        "geosite:category-ads": "127.0.0.1",
-        "geosite:win-spy": "127.0.0.1"
-      },
       "queryStrategy": "UseIPv4",
       "servers": [
-        "1.1.1.1",
-        {
-          "address": "1.1.1.1",
-          "domains": [],
-          "port": 53
-        },
-        {
-          "address": "1.0.0.1",
-          "domains": [
-            "geosite:category-ru",
-            "geosite:private",
-            "geosite:apple",
-            "geosite:twitch",
-            "geosite:steam"
-          ],
-          "port": 53
-        }
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
       ]
     },
     "inbounds": [
